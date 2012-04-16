@@ -1,0 +1,25 @@
+﻿/* default layout */
+.ajax__tab_default .ajax__tab_header {white-space:nowrap;}
+.ajax__tab_default .ajax__tab_outer {display:inline-block}
+.ajax__tab_default .ajax__tab_inner {display:inline-block}
+.ajax__tab_default .ajax__tab_tab {margin-right:4px;overflow:hidden;text-align:center;cursor:pointer;display:inline-block}
+
+/* xp theme */
+.myCustomTab { font-size:small;}
+.myCustomTab .ajax__tab_header {}
+.myCustomTab .ajax__tab_outer {padding-right:3px;margin-right:1px;background:url("/images/tabs/tab-right.gif") no-repeat right; height:23px}
+.myCustomTab .ajax__tab_inner {padding-left:4px;background:url("/images/tabs/tab-left.gif") no-repeat; }
+.myCustomTab .ajax__tab_tab {color:white;padding:4px;margin:0;background:url("/images/tabs/tab-middle.gif") repeat-x;}
+.myCustomTab .ajax__tab_hover .ajax__tab_outer {background:url("/images/tabs/tab-active-right.gif") no-repeat right;}
+.myCustomTab .ajax__tab_hover .ajax__tab_inner {background:url("/images/tabs/tab-active-left.gif") no-repeat;}
+.myCustomTab .ajax__tab_hover .ajax__tab_tab {color:black; background:url("/images/tabs/tab-active-middle.gif") repeat-x;}
+.myCustomTab .ajax__tab_active .ajax__tab_outer {background:url("/images/tabs/tab-active-right.gif") no-repeat right;}
+.myCustomTab .ajax__tab_active .ajax__tab_inner {background:url("/images/tabs/tab-active-left.gif") no-repeat;}
+.myCustomTab .ajax__tab_active .ajax__tab_tab {color:black;background:url("/images/tabs/tab-active-middle.gif") repeat-x;}
+.myCustomTab .ajax__tab_body {border:1px solid #999999; margin-bottom:1em; padding:8px;background-color:white;}
+
+/* scrolling 
+.ajax__scroll_horiz {overflow-x:scroll;}
+.ajax__scroll_vert {overflow-y:scroll;}
+.ajax__scroll_both {overflow:scroll}
+*/

@@ -1,0 +1,18 @@
+﻿Dear $recipient_name
+
+A request to print ads with a retailer has been accepted.
+
+Here are the details of the retailer below:
+
+Retailer Company:	$retailer
+Store:		$store
+Contact:s		$admin_name
+
+Your Company:	$advertiser
+
+
+The details for the Ad Match are in the relevant Campaign's AdGroup Matches at www.docketplace.com.au
+
+Please login, select the company, and start the Ad Run.
+
+Thanks from the team at www.docketplace.com.au

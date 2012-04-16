@@ -1,0 +1,194 @@
+﻿
+
+
+.leftLabel{
+	color:black;	
+	font-weight:bold;
+	float: left;
+	width: 15em;
+	text-align: left;
+	margin-bottom:1em;
+	
+}
+
+.shortLeftLabel{
+	color:black;	
+	font-weight:bold;
+	float: left;
+	width: 7em;
+	text-align: left;
+	margin-bottom:1em;
+	
+}
+
+.topLabel{
+	color:black;	
+	font-weight:bold;
+	float: left;
+	text-align: left;
+	margin-bottom:1em;
+	
+}
+
+.rightElement{
+	float:right;
+	
+}
+
+.topRightElement{
+	float:right;
+     
+	
+}
+
+.bottomRightElement{
+	float:right;
+      vertical-align:bottom;
+}
+
+
+
+.textField{
+	float:left;
+	margin-left:0.5em;
+	
+}
+.watermarked
+{
+	background-color:#CEE3F6;
+}
+
+.submitButton{
+	margin-left: 17em;
+}
+
+
+.errorMessage{		
+	color: red;	
+	margin-left:0.5em;
+}
+
+
+.bigErrorMessage{
+	border: solid 1px black;
+	width: 40em;
+	height: 10em;
+	padding-top: 5em;
+	padding-left: 2em;
+	padding-right: 2em;	
+	
+}
+
+
+p.failuretext{
+	color: fuchsia;
+}
+
+
+
+
+
+
+.collapsiblepanel
+{
+	overflow:hidden;
+	height: 0;
+}
+    
+    
+
+
+
+.ContentPanel
+{
+    margin-bottom: 1em;
+}
+
+
+
+
+
+
+
+
+#UpdateProgress1 {
+   background-color:#CF4342;
+   color:#fff;   
+ }
+
+#UpdateProgress1 img {
+   vertical-align:middle;
+   margin:2px;
+ }
+ 
+ 
+ 
+
+
+/*
+     Styles for the Uploaded Ads Popup in Manage Campaign.
+
+*/
+
+
+.AdLibraryPanel{
+	
+/*
+     width:400px;
+     height:350px;
+     overflow:auto;
+     margin: 0 5% 0 5%;
+*/
+}
+
+.DiscreteAdPanel
+{
+     border:solid 1px black;
+     margin:0.5em;
+     padding:0.5em;
+     
+}
+
+.TilePanel
+{      
+    float:left;
+    margin:0.5em;
+    padding:0.5em;
+}
+ 
+
+.progressIndicator{
+	border: solid 1px black;
+	padding: 10px;
+}
+
+
+.helpicon{
+	float:right;
+}
+
+.CompanySection
+{
+	border: 1px solid black;
+	margin: 1em;
+	padding:1em;
+}
+
+.DetailsPanel
+{
+	float:left;	
+	width:40%;
+}
+
+.AdsPanel
+{
+	float:right;
+	width:50%;
+}
+
+.partnerPanel
+{
+	float:left;
+	margin:2em;
+	width:15em;
+}

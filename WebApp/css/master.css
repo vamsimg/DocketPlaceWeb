@@ -1,0 +1,142 @@
+﻿
+
+body {
+ font: 100.1% ;
+ font-size:11pt;
+ font-family: Helvetica,Verdana, Arial , sans-serif;
+ color: #000000;
+ background:silver;
+ text-align: center;
+ margin: 0 auto;
+ padding: 0;
+}
+
+
+#contentholder {	
+	margin: 0 auto;	
+	text-align: left;
+	width:1200px;	
+}
+
+
+
+#header {
+	background-image: url('/images/header_background.jpg');		
+	background-repeat:no-repeat;		
+	height:137px;			
+	
+}
+
+#toplogo
+{
+     float:left;
+	margin-left: 3em;
+}
+
+#ctl00_LoginPanel{
+     color:White;
+     float:right;
+     margin:1em 1em 0 0;
+}
+
+
+#ctl00_NotLoggedInNavbarPanel
+{
+     float:left;
+    	color:white;			
+	clear:right;	
+	padding:0;
+	margin: 6.75em 0 0 9.5em;	
+}
+
+#ctl00_TopNavPanel
+{
+     background-image: url('/images/topnav_background.jpg');	
+	color:  White;		
+	background-repeat:no-repeat;		
+	width:600px;
+	float:right;
+	height:40px;	
+}
+
+#ctl00_MiddleNavPanel
+{
+     float:left;
+    	color:  white;			
+	clear:right;	
+	padding:0;
+	margin: 3.6em 0 0 6em;
+}
+
+#ctl00_BreadcrumbPanel{
+	margin-left:0.5em;
+	margin-top: 1em;
+	float:left;
+}
+
+#footer 	
+{     
+     background-image: url('/images/footer_background.jpg');	
+	color:  White;		
+	background-repeat:no-repeat;		
+	height:58px;	
+}
+
+
+
+
+
+
+
+
+
+#contentframe {
+	width:100%;
+	float: left;
+	background-color: white;
+}
+
+
+#titleLine {
+	height:1px;
+	background-color: #666666;
+	width: 100%;
+ 
+}
+
+
+#loginstatus {
+	margin-top: 1em;
+	margin-right: 1em;
+	float: right;
+	
+}
+
+#content {	
+	float: left; 
+	margin-top: 0em;
+	margin-left: 2em;
+	margin-right: 1em;
+	margin-bottom: 3em;
+   	width:95%;
+   	min-height:300px;
+   	
+}
+
+.brclear{
+	clear: both;
+}
+
+.brclearleft{
+
+    clear:right;    
+
+}
+
+
+
+.centerImage {	
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}

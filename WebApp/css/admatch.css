@@ -1,0 +1,39 @@
+﻿ 
+ /* CSS for AdMatches list
+     TOODO set widths for floats.
+ 
+  */
+ .AdMatch
+ {
+     border: solid 1px black; 
+     margin: 1em;
+     padding:1em;
+ }
+ 
+ 
+.AdMatchPanel{
+     
+     border: solid 1px black;
+	padding: 10px;
+     
+}
+ 
+.AdMatchDetails
+{     	
+	width: 50%;
+	float:left;
+}
+
+.AdMatchAdRequests
+{
+     float:left;
+     border: solid 1px black;
+     width:100%;
+}
+
+.AdMatchUtilities
+{
+     float:right;
+     width: 15em;    
+}
+

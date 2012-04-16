@@ -1,0 +1,139 @@
+﻿body {
+ font: 100.1% ;
+ font-size:11pt;
+ font-family: Helvetica,Verdana, Arial , sans-serif;
+ color: #000000;
+ background:silver;
+ text-align: center;
+ margin: 0 auto;
+ padding: 0;
+}
+
+#header{
+	background-image: url('/images/header_background.jpg');	
+	color:  White;
+	background-repeat:no-repeat;		
+	width: 1200px	;
+	height:137px;			
+	margin:0px auto;
+	text-align:left;
+}
+
+#logo{
+	margin-left: 3em;
+	float:left;
+	border:none;
+}
+
+#NotLoggedInNavbarPanel
+{
+     float:left;
+    	color:white;			
+	clear:right;	
+	padding:0;
+	margin: 6.75em 0 0 9.5em;	
+}
+
+#TopNavPanel
+{
+     background-image: url('/images/topnav_background.jpg');	
+	color:  White;		
+	background-repeat:no-repeat;		
+	width:600px;
+	float:right;
+	height:40px;	
+}
+
+#MiddleNavPanel
+{
+     float:left;
+    	color:  white;			
+	clear:right;	
+	padding:0;
+	margin: 3.6em 0 0 6em;
+}
+
+#frontpageContent {
+	 margin:0px auto;
+	 background-color:White;
+	 background-repeat:no-repeat;
+	 width: 1200px	;
+	 height : 909px;
+	text-align:left;
+	 
+}
+
+#topInnerContent
+{
+	float:left;
+	margin-top: 6.5em;
+	margin-left: 9.5em;
+}
+
+#heading
+{
+	 font-size: 30pt;	 
+}
+
+#ticks{	
+	list-style-image:url('/icons/icons/tick.png');	
+}
+
+#ticks li{
+	 font-size:15pt;
+}
+
+#coupon{
+	float:left;
+	height: 425px;	
+}
+
+#SignUpTextBox{
+	float:left;
+	margin-left:13em;
+	border:0;
+	margin-top:1.5em;
+	padding:0;
+}
+
+#SignUpImageButton{
+	float:left;
+	margin-left: 2em;
+	margin-top: 2.6em;
+}
+
+#bottomInnerContent{
+
+	margin-top: 5em;
+	margin-left: 9.5em; 
+	float:left;
+	width: 40%;	
+}
+
+#video{
+	margin-top: 5em;
+	float:left;
+	margin-left: 9em;
+}
+
+
+#footer 	
+{     
+     background-image: url('/images/footer_background.jpg');	
+	color:  White;		
+	background-repeat:no-repeat;		
+	height:58px;	
+	width: 1200px	;
+	margin:0px auto;
+}
+
+.brclear{
+	 clear:both;
+}
+
+
+.centerImage {	
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}

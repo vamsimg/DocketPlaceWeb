@@ -1,0 +1,17 @@
+﻿Welcome $full_name
+
+Thanks for registering with the Rewards and Emailed Receipts program at $company
+
+DocketPlace provides this service on behalf of $company
+
+You can access your electronic receipts and any Rewards vouchers using this email and the password below at www.docketplace.com.au/customerlogin.aspx 
+
+Password:  $password				  
+
+Please take a few minutes to complete your profile next time you login at www.docketplace.com.au so that you can receive special offers from the shop you just made purchase from.
+
+If you have any questions please email us at help@docketplace.com.au
+
+Thanks Again from the team at DocketPlace Rewards
+
+

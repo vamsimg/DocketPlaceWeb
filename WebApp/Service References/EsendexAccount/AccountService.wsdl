@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="com.esendex.ems.soapinterface" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="com.esendex.ems.soapinterface" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Account management functionality. Click here for a &lt;a href="https://www.esendex.com/uk/evaluation/evaluation.aspx" title="SMS Service Trial"&gt;free trial&lt;/a&gt;.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="com.esendex.ems.soapinterface">
+      <s:element name="GetMessageLimit">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMessageLimitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMessageLimitResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MessengerHeader" type="tns:MessengerHeader" />
+      <s:complexType name="MessengerHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Account" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="GetSentMessages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="year" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="month" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSentMessagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSentMessagesResult" type="tns:ArrayOfMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMessage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="message" nillable="true" type="tns:message" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="message">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="originator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="recipient" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="body" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="sentat" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="receivedat" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="type" type="tns:MessageType" />
+          <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:MessageStatusCode" />
+          <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MessageType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Text" />
+          <s:enumeration value="Binary" />
+          <s:enumeration value="SmartMessage" />
+          <s:enumeration value="Unicode" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="MessageStatusCode">
+        <s:restriction base="s:string">
+          <s:enumeration value="Queued" />
+          <s:enumeration value="Sent" />
+          <s:enumeration value="Delivered" />
+          <s:enumeration value="Failed" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetAccountFeatures">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAccountFeaturesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAccountFeaturesResult" type="tns:AccountFeature" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="AccountFeature">
+        <s:list>
+          <s:simpleType>
+            <s:restriction base="s:string">
+              <s:enumeration value="None" />
+              <s:enumeration value="ServiceAliasing" />
+              <s:enumeration value="Inbox" />
+            </s:restriction>
+          </s:simpleType>
+        </s:list>
+      </s:simpleType>
+      <s:element name="GetAccountState">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAccountStateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccountStateResult" type="tns:AccountState" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AccountState">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ServiceAlias" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MessageLimit" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Features" type="tns:AccountFeature" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetMessageLimitSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMessageLimit" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageLimitSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMessageLimitResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMessageLimitMessengerHeader">
+    <wsdl:part name="MessengerHeader" element="tns:MessengerHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetSentMessagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSentMessages" />
+  </wsdl:message>
+  <wsdl:message name="GetSentMessagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSentMessagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSentMessagesMessengerHeader">
+    <wsdl:part name="MessengerHeader" element="tns:MessengerHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountFeaturesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountFeatures" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountFeaturesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountFeaturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountFeaturesMessengerHeader">
+    <wsdl:part name="MessengerHeader" element="tns:MessengerHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountStateSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccountState" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountStateSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccountStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountStateMessengerHeader">
+    <wsdl:part name="MessengerHeader" element="tns:MessengerHeader" />
+  </wsdl:message>
+  <wsdl:portType name="AccountServiceSoap">
+    <wsdl:operation name="GetMessageLimit">
+      <wsdl:input message="tns:GetMessageLimitSoapIn" />
+      <wsdl:output message="tns:GetMessageLimitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSentMessages">
+      <wsdl:input message="tns:GetSentMessagesSoapIn" />
+      <wsdl:output message="tns:GetSentMessagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountFeatures">
+      <wsdl:input message="tns:GetAccountFeaturesSoapIn" />
+      <wsdl:output message="tns:GetAccountFeaturesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountState">
+      <wsdl:input message="tns:GetAccountStateSoapIn" />
+      <wsdl:output message="tns:GetAccountStateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountServiceSoap" type="tns:AccountServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMessageLimit">
+      <soap:operation soapAction="com.esendex.ems.soapinterface/GetMessageLimit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMessageLimitMessengerHeader" part="MessengerHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentMessages">
+      <soap:operation soapAction="com.esendex.ems.soapinterface/GetSentMessages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetSentMessagesMessengerHeader" part="MessengerHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountFeatures">
+      <soap:operation soapAction="com.esendex.ems.soapinterface/GetAccountFeatures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAccountFeaturesMessengerHeader" part="MessengerHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountState">
+      <soap:operation soapAction="com.esendex.ems.soapinterface/GetAccountState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAccountStateMessengerHeader" part="MessengerHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AccountServiceSoap12" type="tns:AccountServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetMessageLimit">
+      <soap12:operation soapAction="com.esendex.ems.soapinterface/GetMessageLimit" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetMessageLimitMessengerHeader" part="MessengerHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSentMessages">
+      <soap12:operation soapAction="com.esendex.ems.soapinterface/GetSentMessages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetSentMessagesMessengerHeader" part="MessengerHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountFeatures">
+      <soap12:operation soapAction="com.esendex.ems.soapinterface/GetAccountFeatures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAccountFeaturesMessengerHeader" part="MessengerHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountState">
+      <soap12:operation soapAction="com.esendex.ems.soapinterface/GetAccountState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAccountStateMessengerHeader" part="MessengerHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountService">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Account management functionality. Click here for a &lt;a href="https://www.esendex.com/uk/evaluation/evaluation.aspx" title="SMS Service Trial"&gt;free trial&lt;/a&gt;.</wsdl:documentation>
+    <wsdl:port name="AccountServiceSoap" binding="tns:AccountServiceSoap">
+      <soap:address location="https://www.esendex.com/secure/messenger/soap/AccountService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AccountServiceSoap12" binding="tns:AccountServiceSoap12">
+      <soap12:address location="https://www.esendex.com/secure/messenger/soap/AccountService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

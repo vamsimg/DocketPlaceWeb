@@ -1,0 +1,17 @@
+﻿Dear $recipient_name
+
+An advertiser has requested to print ads from your receipt printers in your Store.
+
+Here are the details of the advertiser below:
+
+Your Company:	$retailer
+Store:		$store
+
+Advertiser:	$advertiser
+Contact:		$admin_name
+
+The details for the Ad Match are in the Pending Matches page at www.docketplace.com.au
+
+Please login, select the company, and either approve or reject the Ad Match.
+
+Thanks from the team at www.docketplace.com.au

@@ -1,0 +1,10 @@
+﻿There was a problem with account with the email address : $email. 
+
+See message below for the exact issue:
+
+$errorMessage
+
+Thanks for Registering
+				  
+
+Thanks Again from the team at DocketPlace

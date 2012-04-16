@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://www.esendex.com:81/secure/messenger/soap/InboxService.asmx?wsdl" docRef="http://www.esendex.com:81/secure/messenger/soap/InboxService.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://www.esendex.com/secure/messenger/soap/InboxService.asmx" xmlns:q1="com.esendex.ems.soapinterface" binding="q1:InboxServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://www.esendex.com/secure/messenger/soap/InboxService.asmx" xmlns:q2="com.esendex.ems.soapinterface" binding="q2:InboxServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,17 @@
+﻿Dear $recipient_name
+
+A request to print ads with a retailer has been declined.
+
+Here are the details of the retailer below:
+
+Retailer Company:	$retailer
+Store:		$store
+Contact;		$admin_name
+
+Your Company:	$advertiser
+
+
+The details for the Ad Match are in the relevant Campaign's AdGroup Matches at www.docketplace.com.au
+
+
+Regards from the team at www.docketplace.com.au
