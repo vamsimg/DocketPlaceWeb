@@ -195,7 +195,7 @@
                               <div class="brclear"></div>
                               
                               <asp:Label ID="AdViewLabel" runat="server" Text="Ad: " CssClass="leftLabel"></asp:Label>
-                                   <asp:Image ID="AdImage" runat="server" ImageUrl='<%# Helpers.GenerateImage(Eval("data").ToString()) %>' Width="150px"  CssClass="textField" />
+                                   <asp:Image ID="AdImage" runat="server" ImageUrl='<%# WebApp.AppCode.Helpers.GenerateImage(Eval("data").ToString()) %>' Width="150px"  CssClass="textField" />
                                        
                                 
                               <div class="brclear"></div>

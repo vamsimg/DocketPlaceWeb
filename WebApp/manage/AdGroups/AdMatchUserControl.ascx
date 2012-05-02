@@ -68,7 +68,7 @@
                         
                          <div class="brclear"></div>
 					
-                         <asp:Image ID="AdImage" runat="server" ImageUrl='<%# Helpers.GenerateImage(Eval("data").ToString()) %>' Width="100px"  CssClass="textField" />
+                         <asp:Image ID="AdImage" runat="server" ImageUrl='<%# WebApp.AppCode.Helpers.GenerateImage(Eval("data").ToString()) %>' Width="100px"  CssClass="textField" />
 		
 					<div class="brclear"></div>
 					
