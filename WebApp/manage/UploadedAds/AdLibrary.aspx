@@ -34,7 +34,7 @@
 			     <div class="brclear"></div>
      	          
 			     <asp:Label ID="AdViewLabel" runat="server" Text="Image: " CssClass="leftLabel"></asp:Label>
-				     <asp:Image ID="AdImage" runat="server" ImageUrl='<%# Helpers.GenerateImage(Eval("data").ToString()) %>'  CssClass="textField" BorderStyle="Solid" BorderColor="Black" BorderWidth="1px" />
+				     <asp:Image ID="AdImage" runat="server" ImageUrl='<%# WebApp.AppCode.Helpers.GenerateImage(Eval("data").ToString()) %>'  CssClass="textField" BorderStyle="Solid" BorderColor="Black" BorderWidth="1px" />
 			     <div class="brclear"></div>
      	        
 			     <asp:Label ID="FooterViewLabel" runat="server" Text="Footer: " CssClass="leftLabel"></asp:Label>
