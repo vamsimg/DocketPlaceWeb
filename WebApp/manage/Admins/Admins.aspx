@@ -25,7 +25,7 @@
                          runat="server"   CausesValidation="False"  
                          CommandArgument='<%# Eval("PermissionID") %>' 
                          oncommand="DeletePermissionImageButton_Command"
-                         ImageUrl="~/icons/icons/delete.png" />						
+                         ImageUrl="~/icons/delete.png" />						
               </ItemTemplate>
                    <ItemStyle HorizontalAlign="Center" />
               </asp:TemplateField>

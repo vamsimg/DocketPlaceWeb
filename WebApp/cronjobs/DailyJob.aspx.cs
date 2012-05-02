@@ -210,7 +210,7 @@ namespace WebApp.cronjobs
 			try
 			{
 				EsendexInbox.message[] todaySMS = SMSHelper.GetReceivedSMSForDate(today);
-				var recentOutgoingSMS = OutgoingSMS.GetOutgoingSMSByDates(today.AddDays(-2), today.AddDays(1));
+				var recentOutgoingSMS = OutgoingSMS.GetOutgoingSMSByDates(today.AddDays(-3), today.AddDays(1));
 
 				List<string> weirdMessages = new List<string>();
 

@@ -85,6 +85,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
+    <Content Include="admin\CreateInvoice.aspx" />
+    <Content Include="admin\CreateNewCompany.aspx" />
+    <Content Include="admin\ProcessReplies.aspx" />
     <Content Include="AdProvider.asmx" />
     <Content Include="Compatability.aspx" />
     <Content Include="ContactUs.aspx" />
@@ -227,8 +230,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="services\MobileItemHandler.svc" />
-    <Content Include="services\POSItemHandler.asmx" />
     <Content Include="Status.aspx" />
     <Content Include="temp\deploydummy.txt" />
     <Content Include="Web.config" />
@@ -237,6 +238,7 @@
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <None Include="Service References\EsendexAccount\AccountService.wsdl" />
     <None Include="Service References\EsendexAccount\WebApp.EsendexAccount.AccountFeature.datasource">
@@ -264,6 +266,27 @@
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CreateInvoice.aspx.cs">
+      <DependentUpon>CreateInvoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CreateInvoice.aspx.designer.cs">
+      <DependentUpon>CreateInvoice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\CreateNewCompany.aspx.cs">
+      <DependentUpon>CreateNewCompany.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\CreateNewCompany.aspx.designer.cs">
+      <DependentUpon>CreateNewCompany.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ProcessReplies.aspx.cs">
+      <DependentUpon>ProcessReplies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ProcessReplies.aspx.designer.cs">
+      <DependentUpon>ProcessReplies.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdProvider.asmx.cs">
       <DependentUpon>AdProvider.asmx</DependentUpon>
@@ -786,13 +809,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="services\MobileItemHandler.svc.cs">
-      <DependentUpon>MobileItemHandler.svc</DependentUpon>
-    </Compile>
-    <Compile Include="services\POSItemHandler.asmx.cs">
-      <DependentUpon>POSItemHandler.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Status.aspx.cs">
       <DependentUpon>Status.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -808,7 +824,9 @@
       <DependentUpon>web.Master</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="services\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="web.Master" />
   </ItemGroup>

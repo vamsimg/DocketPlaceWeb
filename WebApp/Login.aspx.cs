@@ -13,11 +13,7 @@ namespace WebApp
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			//if (!Request.IsSecureConnection)
-			//{
-			//    Response.Redirect("https://www.docketplace.com.au/login.aspx");
-			//}
-
+			
 			string error = Request.QueryString["error"];
 
 			if (error == "noemail")

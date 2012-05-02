@@ -16,10 +16,7 @@ namespace WebApp
 
 		void Application_Start(object sender, EventArgs e)
 		{
-			// Code that runs on application startup
-
-			RouteTable.Routes.Add(new ServiceRoute("MobileItemHandler", new WebServiceHostFactory3(), typeof(WebApp.services.MobileItemHandler)));
-
+			
 		}
 
 		void Application_End(object sender, EventArgs e)
@@ -27,6 +24,14 @@ namespace WebApp
 			//  Code that runs on application shutdown
 
 		}
+
+          protected void Application_BeginRequest(Object sender, EventArgs e)
+          {
+               if (!Request.IsSecureConnection)
+               {
+                    Response.Redirect(Request.Url.AbsoluteUri.Replace("http://", "https://"));
+               }
+          }
 
 		void Application_Error(object sender, EventArgs e)
 		{
