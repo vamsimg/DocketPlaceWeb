@@ -63,7 +63,7 @@ namespace WebApp.admin
           }
 
 
-          protected void CreateInvoice_Click(object sender, EventArgs e)
+          protected void CreateInvoiceButton_Click(object sender, EventArgs e)
           {
                int company_id = Convert.ToInt32(CompaniesDropDownList.SelectedValue);
                EntityList<BillingItem> unattachedItems = BillingItem.GetUnattachedBillingItems(company_id);

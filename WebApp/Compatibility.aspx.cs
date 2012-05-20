@@ -19,7 +19,7 @@ namespace WebApp
 			Panel breadCrumbPanel = (Panel)this.Master.FindControl("BreadCrumbPanel");
 
 			HyperLink Level1 = new HyperLink();
-			Level1.Text = "Compatability";
+			Level1.Text = "Compatibility";
 
 			Literal arrows1 = new Literal();
 			arrows1.Text = " >> ";

@@ -9,9 +9,24 @@ namespace WebApp
 {
 	public partial class HowItWorks : System.Web.UI.Page
 	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
+          protected void Page_Load(object sender, EventArgs e)
+          {
+               PopuplateBreadcrumbs();
+          }
 
-		}
+          private void PopuplateBreadcrumbs()
+          {
+               Panel breadCrumbPanel = (Panel)this.Master.FindControl("BreadCrumbPanel");
+
+               HyperLink Level1 = new HyperLink();
+               Level1.Text = "How it Works";
+
+
+               Literal arrows1 = new Literal();
+               arrows1.Text = " >> ";
+
+               breadCrumbPanel.Controls.Add(arrows1);
+               breadCrumbPanel.Controls.Add(Level1);
+          }
 	}
 }

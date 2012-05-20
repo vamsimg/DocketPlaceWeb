@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web.Master" AutoEventWireup="true" CodeBehind="Compatability.aspx.cs" Inherits="WebApp.Compatability" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web.Master" AutoEventWireup="true" CodeBehind="Compatibility.aspx.cs" Inherits="WebApp.Compatability" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
@@ -9,9 +9,9 @@
 
 	<h2>Point Of Sale Software </h2>
 
-	<ul>
-		<li>MYOB Retail Basics</li>
-		<li>MYOB Retail Manager</li>
+	<ul>	
+		<li>MYOB Retail Manager Version 9,10,11,12</li>
+          <li>Microsft Dynamics RMS</li>
 	</ul>		
 
 	<h3>Hardware</h3>

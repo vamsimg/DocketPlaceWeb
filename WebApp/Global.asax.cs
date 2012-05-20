@@ -29,7 +29,7 @@ namespace WebApp
           {
                if (!Request.IsSecureConnection)
                {
-                    Response.Redirect(Request.Url.AbsoluteUri.Replace("http://", "https://"));
+                   Response.Redirect(Request.Url.AbsoluteUri.Replace("http://", "https://"));
                }
           }
 

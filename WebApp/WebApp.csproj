@@ -89,7 +89,7 @@
     <Content Include="admin\CreateNewCompany.aspx" />
     <Content Include="admin\ProcessReplies.aspx" />
     <Content Include="AdProvider.asmx" />
-    <Content Include="Compatability.aspx" />
+    <Content Include="Compatibility.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="cronjobs\DailyJob.aspx" />
     <Content Include="css\admatch.css" />
@@ -209,6 +209,7 @@
     <Content Include="Pricing.aspx" />
     <Content Include="ResetCustomerPassword.aspx" />
     <Content Include="ResetMerchantPassword.aspx" />
+    <Content Include="Print.Master" />
     <None Include="Service References\EsendexAccount\AccountService.disco" />
     <None Include="Service References\EsendexAccount\configuration91.svcinfo" />
     <None Include="Service References\EsendexAccount\configuration.svcinfo" />
@@ -300,12 +301,12 @@
     <Compile Include="AppCode\ReportsHelper.cs" />
     <Compile Include="AppCode\RewardsHelper.cs" />
     <Compile Include="AppCode\SMSHelper.cs" />
-    <Compile Include="Compatability.aspx.cs">
-      <DependentUpon>Compatability.aspx</DependentUpon>
+    <Compile Include="Compatibility.aspx.cs">
+      <DependentUpon>Compatibility.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Compatability.aspx.designer.cs">
-      <DependentUpon>Compatability.aspx</DependentUpon>
+    <Compile Include="Compatibility.aspx.designer.cs">
+      <DependentUpon>Compatibility.aspx</DependentUpon>
     </Compile>
     <Compile Include="ContactUs.aspx.cs">
       <DependentUpon>ContactUs.aspx</DependentUpon>
@@ -778,6 +779,13 @@
     </Compile>
     <Compile Include="Pricing.aspx.designer.cs">
       <DependentUpon>Pricing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Print.Master.cs">
+      <DependentUpon>Print.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Print.Master.designer.cs">
+      <DependentUpon>Print.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResetCustomerPassword.aspx.cs">
