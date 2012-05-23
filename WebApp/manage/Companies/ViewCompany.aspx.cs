@@ -33,7 +33,7 @@ namespace WebApp.manage.Companies
 			{
 				Response.Redirect("/manage/Rewards/RewardsHome.aspx");
 			}
-			else if (!(Helpers.IsAuthorizedAdmin(loggedInAdmin, currentCompany) || Helpers.IsSuperUser(loggedInAdmin)))
+			else if (!Helpers.IsAuthorizedAdmin(loggedInAdmin, currentCompany))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}

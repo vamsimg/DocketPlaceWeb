@@ -20,7 +20,7 @@ namespace WebApp.manage.UploadedAds
 			loggedInAdmin = Helpers.GetLoggedInAdmin();
 			current_company = Helpers.GetCurrentCompany();
 
-			if (!(Helpers.IsAuthorizedAdmin(loggedInAdmin, current_company) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedAdmin(loggedInAdmin, current_company))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
@@ -79,7 +79,7 @@ namespace WebApp.manage.UploadedAds
 
 		protected void UpdateDetailsButton_Click(object sender, EventArgs e)
 		{
-			if (!(Helpers.IsAuthorizedAdmin(loggedInAdmin, current_company) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedAdmin(loggedInAdmin, current_company))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}

@@ -25,7 +25,7 @@ namespace WebApp.manage.Admins
 
 			current_company = Helpers.GetCurrentCompany();
 
-			if (!(Helpers.IsAuthorizedOwner(loggedInAdmin, current_company) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedOwner(loggedInAdmin, current_company))
 			{
 				Response.Redirect("/status.aspx?msg=notauthorized");
 			}

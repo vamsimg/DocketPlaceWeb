@@ -27,7 +27,7 @@ namespace WebApp.manage.Billing
 
 		private void CheckPermission()
 		{
-			if (!(Helpers.IsAuthorizedAdmin(loggedInAdmin, currentCompany) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedAdmin(loggedInAdmin, currentCompany))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}

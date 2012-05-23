@@ -136,7 +136,8 @@ namespace WebApp.AppCode
 				}
 			}
 
-			return is_ok;
+               is_ok = (is_ok || IsSuperUser(loggedInAdmin));
+               return is_ok;
 		}
 
 		/// <summary>

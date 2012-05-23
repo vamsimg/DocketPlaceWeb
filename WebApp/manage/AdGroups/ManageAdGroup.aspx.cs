@@ -31,7 +31,7 @@ namespace WebApp.manage.AdGroups
 
 			currentCampaign = currentAdGroup.campaign_;
 
-			if (!(Helpers.IsAuthorizedAdmin(loggedInAdmin, currentAdGroup.campaign_.company_) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedAdmin(loggedInAdmin, currentAdGroup.campaign_.company_))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}

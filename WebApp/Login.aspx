@@ -7,7 +7,7 @@
 	<hr id="titleLine" />
 	
 	<br />
-	Forgot your password ? <asp:HyperLink ID="ForgottenPasswordHyperLink" runat="server" NavigateUrl="/ResetPassword.aspx"> Click here to obtain a new one.</asp:HyperLink>	 
+	Forgot your password ? <asp:HyperLink ID="ForgottenPasswordHyperLink" runat="server" NavigateUrl="/ResetMerchantPassword.aspx"> Click here to obtain a new one.</asp:HyperLink>	 
 	
 	<br />
      <br />

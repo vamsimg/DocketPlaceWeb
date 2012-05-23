@@ -22,7 +22,7 @@ namespace WebApp.manage.AdMatches
 			loggedInAdmin = Helpers.GetLoggedInAdmin();
 			current_adgroup = Helpers.GetCurrentAdGroup();
 
-			if (!(Helpers.IsAuthorizedAdmin(loggedInAdmin, current_adgroup.campaign_.company_) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedAdmin(loggedInAdmin, current_adgroup.campaign_.company_))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}

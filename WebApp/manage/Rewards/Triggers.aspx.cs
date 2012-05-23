@@ -21,7 +21,7 @@ namespace WebApp.manage.Rewards
 			loggedInAdmin = Helpers.GetLoggedInAdmin();
 			currentCompany = Helpers.GetCurrentCompany();
 
-			if (!(Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany))
 			{
 				Response.Redirect("/status.aspx?error=notsuperuser");
 			}

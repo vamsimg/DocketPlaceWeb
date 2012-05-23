@@ -48,12 +48,12 @@ namespace WebApp.manage.Rewards
 
 		private void CheckPermission()
 		{
-			if (!(Helpers.IsAuthorizedClerk(loggedInAdmin, currentCompany) || Helpers.IsAuthorizedAdmin(loggedInAdmin, currentCompany) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!(Helpers.IsAuthorizedClerk(loggedInAdmin, currentCompany) || Helpers.IsAuthorizedAdmin(loggedInAdmin, currentCompany)))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
 
-			if (Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany) || Helpers.IsSuperUser(loggedInAdmin))
+			if (Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany))
 			{
 				SMSPanel.Visible = true;
 				SMSPanel.Enabled = true;

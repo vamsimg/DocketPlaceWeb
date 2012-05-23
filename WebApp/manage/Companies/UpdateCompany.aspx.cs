@@ -20,7 +20,7 @@ namespace WebApp.manage.Companies
 			loggedInAdmin = Helpers.GetLoggedInAdmin();
 			current_company = Helpers.GetCurrentCompany();
 
-			if (!(Helpers.IsAuthorizedOwner(loggedInAdmin, current_company) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedOwner(loggedInAdmin, current_company))
 			{
 				Response.Redirect("/status.aspx?error=notowner");
 			}

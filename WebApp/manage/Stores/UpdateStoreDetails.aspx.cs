@@ -23,7 +23,7 @@ namespace WebApp.manage.Stores
 			currentStore = Helpers.GetCurrentStore();
 
 
-			if (!(Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany))
 			{
 				Response.Redirect("/status.aspx?error=notsuperuser");
 			}

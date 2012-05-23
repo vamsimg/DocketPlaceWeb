@@ -16,7 +16,7 @@ namespace WebApp.manage.UploadedAds
 			Admin loggedInAdmin = Helpers.GetLoggedInAdmin();
 			Company current_company = Helpers.GetCurrentCompany();
 
-			if (!(Helpers.IsAuthorizedAdmin(loggedInAdmin, current_company) || Helpers.IsSuperUser(loggedInAdmin)))
+			if (!Helpers.IsAuthorizedAdmin(loggedInAdmin, current_company))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
