@@ -249,8 +249,8 @@
 		<Columns>			
 			<asp:BoundField DataField="product_code" HeaderText="Product Code"/>
 			<asp:BoundField DataField="unit_cost" HeaderText="Unit Cost" DataFormatString="{0:C0}" />	
-			<asp:BoundField DataField="total_count" HeaderText="# of Sales" SortExpression="frequency" />
-			<asp:BoundField DataField="total_revenue" HeaderText="Total Revenue" SortExpression="total_revenue" DataFormatString="{0:C0}" />		
+			<asp:BoundField DataField="total_count" HeaderText="# of Sales"  />
+			<asp:BoundField DataField="total_revenue" HeaderText="Total Revenue" DataFormatString="{0:C0}" />		
 			<asp:BoundField DataField="description" HeaderText="Description"/>
 		</Columns>
 	</asp:GridView>	

@@ -6,6 +6,6 @@ If you are an existing user the company account will be available next time you 
 
 If you are a new user please visit the address below to receive a new password.
 
-http://docketplace.com.au/ResetPassword.aspx
+http://docketplace.com.au/ResetMerchantPassword.aspx
 
 Regards from the DocketPlace team

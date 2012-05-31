@@ -313,7 +313,9 @@ namespace WebApp.AppCode
 			SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString);
 
 			// create a command object
-			string selectCommand = @"SELECT  product_code, description, unit_cost, COUNT(*) as total_count, (unit_cost * COUNT(*)) as total_revenue
+               //TODO Check query accuracy
+
+               string selectCommand = @"SELECT  product_code, description, unit_cost, SUM(quantity) as total_count, SUM(unit_cost * quantity) as total_revenue
 							FROM Dockets as d
 							INNER JOIN DocketItems as i
 							on d.docket_id = i.docket_id
