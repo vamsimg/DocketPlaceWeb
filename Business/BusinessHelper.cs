@@ -38,7 +38,7 @@ namespace DocketPlace.Business
             }
             return sOutput.ToString();
         }
-
+         
 
 	   /// <summary>
 	   /// Images should be PNG to reduce size.

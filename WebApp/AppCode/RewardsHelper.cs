@@ -330,6 +330,13 @@ namespace WebApp.AppCode
 			}
 			else
 			{
+                    //Barcode has changed.
+                    if (existingMember.local_barcode_id != localCustomer.barcode_id)
+                    {
+                         existingMember.local_barcode_id = localCustomer.barcode_id;
+                         existingMember.Save();
+                    }
+
 				return existingMember;
 			}
 		}

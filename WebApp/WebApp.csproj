@@ -82,6 +82,10 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Zen.Barcode.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Zen.Barcode.Core.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
@@ -233,7 +237,10 @@
     </None>
     <Content Include="Status.aspx" />
     <Content Include="temp\deploydummy.txt" />
-    <Content Include="Web.config" />
+    <Content Include="VoucherValidator.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -823,6 +830,13 @@
     </Compile>
     <Compile Include="Status.aspx.designer.cs">
       <DependentUpon>Status.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VoucherValidator.aspx.cs">
+      <DependentUpon>VoucherValidator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VoucherValidator.aspx.designer.cs">
+      <DependentUpon>VoucherValidator.aspx</DependentUpon>
     </Compile>
     <Compile Include="web.Master.cs">
       <DependentUpon>web.Master</DependentUpon>
