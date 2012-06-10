@@ -49,7 +49,7 @@ namespace DocketPlace.Business
 			parameters.Add(p);
 			parameters.Add(q);
 
-			string where = "inner join AdMatches as m on m.admatch_id = [RequestedAds].admatch_id where m.store_id = @store_id and @currentDate between m.start_datetime and m.end_datetime";
+               string where = "inner join AdMatches as m on m.admatch_id = [RequestedAds].admatch_id where m.store_id = @store_id and @currentDate between m.start_datetime and m.end_datetime and [RequestedAds].is_active = 1";
 
 			EntityList<RequestedAd> currentAds = RequestedAd.GetRequestedAds(where, parameters);
 
