@@ -83,7 +83,7 @@
 			<asp:Label ID="StoreReceiptsFieldLabel" runat="server" CssClass="textField"></asp:Label>
 		<div class="brclear"></div>
 
-		<asp:HyperLink ID="EditCompanyHyperLink" runat="server" NavigateUrl="/manage/Company/UpdateCompany.aspx">Update Company</asp:HyperLink>
+		<asp:HyperLink ID="EditCompanyHyperLink" runat="server" NavigateUrl="/manage/Companies/UpdateCompany.aspx">Update Company</asp:HyperLink>
 
 	</div>
      
