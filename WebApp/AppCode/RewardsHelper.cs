@@ -26,7 +26,7 @@ namespace WebApp.AppCode
 		/// <param name="localDocket"></param>
 		/// <param name="currentStore"></param>
 		/// <returns></returns>
-		public static Docket InsertNonRewardsDocket(AdProvider.LocalDocket localDocket, Store currentStore)
+		public static Docket InsertNonRewardsDocket(AdProvider.LocalDocket localDocket, Store currentStore, bool sendEmail)
 		{
 			Docket newDocket = Docket.CreateDocket();
 			
@@ -66,7 +66,7 @@ namespace WebApp.AppCode
 				newDocket.Save();
 				newDocket.Refresh();
 
-				if (newDocket.customer_.email != "" && newDocket.customer_.email_broken == false)
+				if (newDocket.customer_.email != "" && newDocket.customer_.email_broken == false && sendEmail)
 				{
 					EmailHelper.ReceiptEmail(newDocket.customer_.email, Helpers.DecodeFromBase64(localDocket.receipt_content), currentStore.company_.name);
 				}
@@ -253,7 +253,7 @@ namespace WebApp.AppCode
 
 
 		/// <summary>
-		/// Check to see if a customer is a meber of the store and if not create a member ship record. Returns the Member object.
+		/// Check to see if a customer is a member of the store and if not create a member ship record. Returns the Member object.
 		/// </summary>
 		/// <param name="localCustomer"></param>
 		/// <param name="currentStore"></param>
