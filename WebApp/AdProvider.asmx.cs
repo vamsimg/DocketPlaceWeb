@@ -234,7 +234,7 @@ namespace WebApp
 					{
 						Docket newDocket = null;
 
-						newDocket = RewardsHelper.InsertNonRewardsDocket(new_request.currentDocket, current_store);
+						newDocket = RewardsHelper.InsertNonRewardsDocket(new_request.currentDocket, current_store, true);
 
 						//Generate a QR code for an email receipt if theres no customer attached, if a customer is attached then they should have an email address as part of their record.
 						if (current_store.company_.enableQRCodes == true && newDocket.customer_ == null)
@@ -497,7 +497,7 @@ namespace WebApp
 						else
 						{
 							Docket newDocket = null;
-							newDocket = RewardsHelper.InsertNonRewardsDocket(new_request.currentDocket, current_store);
+							newDocket = RewardsHelper.InsertNonRewardsDocket(new_request.currentDocket, current_store, true);
 						}
 						new_response.status = "Docket Insert Sucess";
 						new_response.is_error = false;
