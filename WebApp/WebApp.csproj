@@ -42,6 +42,10 @@
       <HintPath>bin\FSharp.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="MailChimp, Version=1.3.0.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\MailChimp.dll</HintPath>
@@ -82,16 +86,14 @@
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="Zen.Barcode.Core, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b5ae55aa76d2d9de, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Zen.Barcode.Core.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
     <Content Include="admin\CreateInvoice.aspx" />
     <Content Include="admin\CreateNewCompany.aspx" />
     <Content Include="admin\ProcessReplies.aspx" />
+    <Content Include="admin\UploadCustomers.aspx" />
+    <Content Include="admin\UploadDockets.aspx" />
     <Content Include="AdProvider.asmx" />
     <Content Include="Compatibility.aspx" />
     <Content Include="ContactUs.aspx" />
@@ -214,6 +216,10 @@
     <Content Include="ResetCustomerPassword.aspx" />
     <Content Include="ResetMerchantPassword.aspx" />
     <Content Include="Print.Master" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Service References\EsendexAccount\AccountService.disco" />
     <None Include="Service References\EsendexAccount\configuration91.svcinfo" />
     <None Include="Service References\EsendexAccount\configuration.svcinfo" />
@@ -235,6 +241,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="services\UploaderWebService.asmx" />
     <Content Include="Status.aspx" />
     <Content Include="temp\deploydummy.txt" />
     <Content Include="VoucherValidator.aspx" />
@@ -243,6 +250,7 @@
     </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -296,6 +304,20 @@
     <Compile Include="admin\ProcessReplies.aspx.designer.cs">
       <DependentUpon>ProcessReplies.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\UploadCustomers.aspx.cs">
+      <DependentUpon>UploadCustomers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UploadCustomers.aspx.designer.cs">
+      <DependentUpon>UploadCustomers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\UploadDockets.aspx.cs">
+      <DependentUpon>UploadDockets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\UploadDockets.aspx.designer.cs">
+      <DependentUpon>UploadDockets.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdProvider.asmx.cs">
       <DependentUpon>AdProvider.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -308,6 +330,7 @@
     <Compile Include="AppCode\ReportsHelper.cs" />
     <Compile Include="AppCode\RewardsHelper.cs" />
     <Compile Include="AppCode\SMSHelper.cs" />
+    <Compile Include="AppCode\ZipHelper.cs" />
     <Compile Include="Compatibility.aspx.cs">
       <DependentUpon>Compatibility.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -795,6 +818,11 @@
       <DependentUpon>Print.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="ResetCustomerPassword.aspx.cs">
       <DependentUpon>ResetCustomerPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -824,6 +852,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="services\UploaderWebService.asmx.cs">
+      <DependentUpon>UploaderWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Status.aspx.cs">
       <DependentUpon>Status.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -847,7 +879,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="services\" />
+    <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.Master" />

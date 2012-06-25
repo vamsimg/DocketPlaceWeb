@@ -29,6 +29,11 @@ namespace WebApp.manage.Rewards
 			currentCompany = Helpers.GetCurrentCompany();
 			CheckPermission();
 			PopuplateBreadcrumbs();
+
+               if (!IsPostBack)
+               {
+                    PopulateStores();
+               }
 		}
 
 		private void CheckPermission()
@@ -38,6 +43,7 @@ namespace WebApp.manage.Rewards
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
 		}
+
 
 		private void PopuplateBreadcrumbs()
 		{
@@ -74,13 +80,23 @@ namespace WebApp.manage.Rewards
 		}
 
 
+          /// <summary>
+          /// Check for hacking
+          /// </summary>
+          private void PopulateStores()
+          {
+               StoresDropDownList.DataSource = currentCompany.StoresBycompany_;
+               StoresDropDownList.DataBind();
+          }
+
 		/// <summary>
 		/// Need significant review
 		/// </summary>
 		private void PopulateData()
 		{
 			int year = Convert.ToInt32(YearDropDownList.SelectedValue);
-			int storeID = currentCompany.StoresBycompany_[0].store_id;
+               // Make sure to provide store level splitting with multi store companies.
+               int storeID = Convert.ToInt32(StoresDropDownList.SelectedValue);
 
 			DataTable results = ReportsHelper.RunYearlyReportQuery(year, storeID);
 
@@ -121,9 +137,14 @@ namespace WebApp.manage.Rewards
 
 		private void PopulateSummary(DataTable results)
 		{
-			int salesCount = results.AsEnumerable().Sum(x => x.Field<int>("monthly_count"));
-			decimal totalSales = results.AsEnumerable().Sum(x => x.Field<decimal>("monthly_total"));
+               int salesCount = 0;
+			decimal totalSales = 0;
 
+               if (results.Rows.Count > 1)
+               {
+                    salesCount = results.AsEnumerable().Sum(x => x.Field<int>("monthly_count"));
+                    totalSales = results.AsEnumerable().Sum(x => x.Field<decimal>("monthly_total"));
+               }
 
 			SalesCountLiteral.Text = salesCount.ToString();
 			TotalRevenueLiteral.Text = totalSales.ToString("#0.00");

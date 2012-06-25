@@ -7,15 +7,18 @@
 	<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 	<h1>Yearly Report</h1>
+     	
+     <span class="shortLeftLabel">Store: </span>  <asp:DropDownList ID="StoresDropDownList" runat="server" DataTextField="suburb" DataValueField="store_id" CssClass="textField" />               
+     <div class="brclear"></div>    
+     
+     <span class="shortLeftLabel">Year: </span>     
+     
+	<asp:DropDownList ID="YearDropDownList" runat="server">
+		<asp:ListItem Value="2011">2011</asp:ListItem>
+		<asp:ListItem Value="2012">2012</asp:ListItem>
+	</asp:DropDownList>
 
-	<span class="leftLabel">Monthly Report For: </span>
-
-		<asp:DropDownList ID="YearDropDownList" runat="server">
-			<asp:ListItem Value="2011">2011</asp:ListItem>
-			<asp:ListItem Value="2012">2012</asp:ListItem>
-		</asp:DropDownList>
-
-		<asp:Button ID="UpdateButton" runat="server" Text="Update" onclick="UpdateButton_Click" />
+	<asp:Button ID="UpdateButton" runat="server" Text="Update" onclick="UpdateButton_Click" />
 		
 	<div class="brclear"></div>	
 

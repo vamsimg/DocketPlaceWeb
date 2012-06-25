@@ -33,6 +33,8 @@ namespace WebApp.manage.Rewards
 			{
 				DateTime startDate = Helpers.ConvertServerDateTimetoLocal(DateTime.Now);
 				DailyDateTextBox.Text = startDate.ToShortDateString();
+
+                    PopulateStores();
 			}
 			PopuplateBreadcrumbs();
 		}
@@ -44,6 +46,8 @@ namespace WebApp.manage.Rewards
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
 		}
+
+
 
 		private void PopuplateBreadcrumbs()
 		{
@@ -79,13 +83,25 @@ namespace WebApp.manage.Rewards
 			breadCrumbPanel.Controls.Add(Level3);
 		}
 
+
+          /// <summary>
+          /// Check for hacking
+          /// </summary>
+          private void PopulateStores()
+          {
+               StoresDropDownList.DataSource = currentCompany.StoresBycompany_;
+               StoresDropDownList.DataBind();
+          }
+
 		private void PopulateData()
 		{
-			DateTime reportDate = Convert.ToDateTime(DailyDateTextBox.Text);
-			DateTime endDate = reportDate.AddDays(8);
+               DateTime endDate = Convert.ToDateTime(DailyDateTextBox.Text).AddDays(1);
+               DateTime reportDate = endDate.AddDays(-7);
+			
 
-			// Make sure to provide store level splitting with multi store companies.
-			int storeID = currentCompany.StoresBycompany_[0].store_id;
+               
+               int storeID = Convert.ToInt32(StoresDropDownList.SelectedValue);
+
 
 			DataTable memberResults = ReportsHelper.RunCustomersReportQuery(reportDate, endDate, storeID);
 			DataTable anonymousResults = ReportsHelper.RunAnonymousCustomersReportQuery(reportDate, endDate, storeID);
@@ -108,9 +124,18 @@ namespace WebApp.manage.Rewards
 			salesSummary.Columns.Add("total_revenue");
 			salesSummary.Columns.Add("average_sale");
 
-			int totalMemberSalesCount = memberResults.AsEnumerable().Sum(x => x.Field<int>("frequency"));
-			decimal totalMemberRevenue = memberResults.AsEnumerable().Sum(x => x.Field<decimal>("total_revenue"));
+               int totalMemberSalesCount = 0;
+               decimal totalMemberRevenue = 0;
+
+               if (memberResults.Rows.Count > 1)
+               {
+                    totalMemberSalesCount = memberResults.AsEnumerable().Sum(x => x.Field<int>("frequency"));
+                    totalMemberRevenue = memberResults.AsEnumerable().Sum(x => x.Field<decimal>("total_revenue"));
+               }
+
+
 			decimal averageMemberSale = 0;
+
 			if (totalMemberSalesCount > 0)
 			{
 				averageMemberSale = totalMemberRevenue / totalMemberSalesCount;
@@ -118,8 +143,15 @@ namespace WebApp.manage.Rewards
 
 			salesSummary.Rows.Add("Member", totalMemberSalesCount, totalMemberRevenue.ToString("#0"), averageMemberSale.ToString("#0"));
 
-			int totalAnonymousSalesCount = anonymousResults.AsEnumerable().Sum(x => x.Field<int>("frequency"));
-			decimal totalAnonymousRevenue = anonymousResults.AsEnumerable().Sum(x => x.Field<decimal>("total_revenue"));
+               int totalAnonymousSalesCount = 0;
+               decimal totalAnonymousRevenue = 0;
+
+               if (anonymousResults.Rows.Count > 1)
+               {
+                    totalAnonymousSalesCount = anonymousResults.AsEnumerable().Sum(x => x.Field<int>("frequency"));
+                    totalAnonymousRevenue = anonymousResults.AsEnumerable().Sum(x => x.Field<decimal>("total_revenue"));
+               }               
+               
 			decimal averageAnonymousSale = 0;
 			if (totalAnonymousSalesCount > 0)
 			{
@@ -129,8 +161,15 @@ namespace WebApp.manage.Rewards
 			salesSummary.Rows.Add("Anonymous", totalAnonymousSalesCount, totalAnonymousRevenue.ToString("#0"), averageAnonymousSale.ToString("#0"));
 
 
-			int salesCount = allSales.AsEnumerable().Sum(x => x.Field<int>("daily_count"));
-			decimal totalSales = allSales.AsEnumerable().Sum(x => x.Field<decimal>("daily_total"));
+               int salesCount = 0;
+               decimal totalSales = 0;
+
+               if (allSales.Rows.Count > 1)
+               {
+                    salesCount = allSales.AsEnumerable().Sum(x => x.Field<int>("daily_count"));
+                    totalSales = allSales.AsEnumerable().Sum(x => x.Field<decimal>("daily_total"));
+               }
+
 			decimal averageSale = 0;
 			if (salesCount > 0)
 			{

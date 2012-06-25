@@ -8,29 +8,32 @@
 
 	<h1>Monthly Reports</h1>
 
-	<span class="leftLabel">Monthly Report For: </span>
+     <span class="shortLeftLabel">Store: </span>  <asp:DropDownList ID="StoresDropDownList" runat="server" DataTextField="suburb" DataValueField="store_id" CssClass="textField" />               
+     <div class="brclear"></div>    
+     
+     <span class="shortLeftLabel">Year/Month: </span>
 
-		<asp:DropDownList ID="YearDropDownList" runat="server">
-			<asp:ListItem Value="2012">2012</asp:ListItem>
-		     <asp:ListItem Value="2011">2011</asp:ListItem>		
-		</asp:DropDownList>
+     <asp:DropDownList ID="YearDropDownList" runat="server">
+		<asp:ListItem Value="2012">2012</asp:ListItem>
+		<asp:ListItem Value="2011">2011</asp:ListItem>		
+	</asp:DropDownList>
 		
-		<asp:DropDownList ID="MonthDropDownList" runat="server">
-			<asp:ListItem Value="1">January</asp:ListItem>
-			<asp:ListItem Value="2">February</asp:ListItem>
-			<asp:ListItem Value="3">March</asp:ListItem>
-			<asp:ListItem Value="4">April</asp:ListItem>
-			<asp:ListItem Value="5">May</asp:ListItem>
-			<asp:ListItem Value="6">June</asp:ListItem>
-			<asp:ListItem Value="7">July</asp:ListItem>
-			<asp:ListItem Value="8">August</asp:ListItem>
-			<asp:ListItem Value="9">September</asp:ListItem>
-			<asp:ListItem Value="10">October</asp:ListItem>
-			<asp:ListItem Value="11">November</asp:ListItem>
-			<asp:ListItem Value="12">December</asp:ListItem>
-		</asp:DropDownList>		
+	<asp:DropDownList ID="MonthDropDownList" runat="server">
+		<asp:ListItem Value="1">January</asp:ListItem>
+		<asp:ListItem Value="2">February</asp:ListItem>
+		<asp:ListItem Value="3">March</asp:ListItem>
+		<asp:ListItem Value="4">April</asp:ListItem>
+		<asp:ListItem Value="5">May</asp:ListItem>
+		<asp:ListItem Value="6">June</asp:ListItem>
+		<asp:ListItem Value="7">July</asp:ListItem>
+		<asp:ListItem Value="8">August</asp:ListItem>
+		<asp:ListItem Value="9">September</asp:ListItem>
+		<asp:ListItem Value="10">October</asp:ListItem>
+		<asp:ListItem Value="11">November</asp:ListItem>
+		<asp:ListItem Value="12">December</asp:ListItem>
+	</asp:DropDownList>		
 		
-		<asp:Button ID="UpdateButton" runat="server" Text="Update" onclick="UpdateButton_Click" />		
+	<asp:Button ID="UpdateButton" runat="server" Text="Update" onclick="UpdateButton_Click" />		
 
 	<div class="brclear"></div>	
 

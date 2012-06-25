@@ -7,7 +7,10 @@
 
 	<h1>Weekly Report</h1>
 
-	<span class="leftLabel">Weekly Report Starting:</span>
+     <span class="shortLeftLabel">Store: </span>  <asp:DropDownList ID="StoresDropDownList" runat="server" DataTextField="suburb" DataValueField="store_id" CssClass="textField" />               
+     <div class="brclear"></div>    
+
+	<span class="shortLeftLabel">Ending:</span>
 	
 		<asp:TextBox ID="DailyDateTextBox" runat="server" Columns="10" CssClass="textField"></asp:TextBox>
 			<cc1:CalendarExtender ID="DailyDateCalendarExtender" runat="server" Format="dd/MM/yyyy" TargetControlID="DailyDateTextBox" Enabled="True"></cc1:CalendarExtender>

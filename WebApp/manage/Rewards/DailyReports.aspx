@@ -4,17 +4,20 @@
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
-<asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 	<h1>Daily Report</h1>
 
-	<span class="leftLabel">Daily Report For:</span>
+	<span class="shortLeftLabel">Store: </span>  <asp:DropDownList ID="StoresDropDownList" runat="server" DataTextField="suburb" DataValueField="store_id" CssClass="textField" />               
+     <div class="brclear"></div>    
+     
+     <span class="shortLeftLabel">Date: </span>     
+          
+	<asp:TextBox ID="DailyDateTextBox" runat="server" Columns="10" CssClass="textField"></asp:TextBox>
+		<cc1:CalendarExtender ID="DailyDateCalendarExtender" runat="server" Format="dd/MM/yyyy" TargetControlID="DailyDateTextBox" Enabled="True"></cc1:CalendarExtender>
+		<cc1:MaskedEditExtender ID="DailyDateMaskedEditExtender" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="DailyDateTextBox"  CultureName="en-AU" CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="$" CultureDateFormat="DMY" CultureDatePlaceholder="/" CultureDecimalPlaceholder="" CultureThousandsPlaceholder="," CultureTimePlaceholder="" Enabled="True" ></cc1:MaskedEditExtender>
 	
-		<asp:TextBox ID="DailyDateTextBox" runat="server" Columns="10" CssClass="textField"></asp:TextBox>
-			<cc1:CalendarExtender ID="DailyDateCalendarExtender" runat="server" Format="dd/MM/yyyy" TargetControlID="DailyDateTextBox" Enabled="True"></cc1:CalendarExtender>
-			<cc1:MaskedEditExtender ID="DailyDateMaskedEditExtender" runat="server" Mask="99/99/9999" MaskType="Date" TargetControlID="DailyDateTextBox"  CultureName="en-AU" CultureAMPMPlaceholder="" CultureCurrencySymbolPlaceholder="$" CultureDateFormat="DMY" CultureDatePlaceholder="/" CultureDecimalPlaceholder="" CultureThousandsPlaceholder="," CultureTimePlaceholder="" Enabled="True" ></cc1:MaskedEditExtender>
-	
-		<asp:Button ID="UpdateButton" runat="server" Text="Update" onclick="UpdateButton_Click" />		
+	<asp:Button ID="UpdateButton" runat="server" Text="Update" onclick="UpdateButton_Click" />		
 
 	<div class="brclear"></div>	
 
