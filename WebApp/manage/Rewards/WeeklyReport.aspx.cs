@@ -127,9 +127,10 @@ namespace WebApp.manage.Rewards
                int totalMemberSalesCount = 0;
                decimal totalMemberRevenue = 0;
 
-               if (memberResults.Rows.Count > 1)
-               {
-                    totalMemberSalesCount = memberResults.AsEnumerable().Sum(x => x.Field<int>("frequency"));
+
+               totalMemberSalesCount = memberResults.AsEnumerable().Sum(x => x.Field<int>("frequency"));
+               if (totalMemberSalesCount > 0)
+               {                   
                     totalMemberRevenue = memberResults.AsEnumerable().Sum(x => x.Field<decimal>("total_revenue"));
                }
 
@@ -146,9 +147,9 @@ namespace WebApp.manage.Rewards
                int totalAnonymousSalesCount = 0;
                decimal totalAnonymousRevenue = 0;
 
-               if (anonymousResults.Rows.Count > 1)
-               {
-                    totalAnonymousSalesCount = anonymousResults.AsEnumerable().Sum(x => x.Field<int>("frequency"));
+               totalAnonymousSalesCount = anonymousResults.AsEnumerable().Sum(x => x.Field<int>("frequency"));
+               if (totalAnonymousSalesCount > 0)
+               {                    
                     totalAnonymousRevenue = anonymousResults.AsEnumerable().Sum(x => x.Field<decimal>("total_revenue"));
                }               
                
@@ -164,7 +165,7 @@ namespace WebApp.manage.Rewards
                int salesCount = 0;
                decimal totalSales = 0;
 
-               if (allSales.Rows.Count > 1)
+               if (allSales.Rows.Count > 0)
                {
                     salesCount = allSales.AsEnumerable().Sum(x => x.Field<int>("daily_count"));
                     totalSales = allSales.AsEnumerable().Sum(x => x.Field<decimal>("daily_total"));

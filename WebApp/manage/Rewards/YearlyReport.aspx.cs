@@ -140,9 +140,10 @@ namespace WebApp.manage.Rewards
                int salesCount = 0;
 			decimal totalSales = 0;
 
-               if (results.Rows.Count > 1)
+               salesCount = results.AsEnumerable().Sum(x => x.Field<int>("monthly_count"));
+               if (salesCount > 0)
                {
-                    salesCount = results.AsEnumerable().Sum(x => x.Field<int>("monthly_count"));
+                   
                     totalSales = results.AsEnumerable().Sum(x => x.Field<decimal>("monthly_total"));
                }
 
