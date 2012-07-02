@@ -24,7 +24,7 @@ namespace WebApp.manage.AdGroups
 		{
 
 			RetailerHyperLink.Text = _admatch.store_.company_.name;
-			RetailerHyperLink.NavigateUrl = "/manage/Company/CompanyListing.aspx?company_id=" + _admatch.store_.company_id;
+			RetailerHyperLink.NavigateUrl = "/manage/Companies/CompanyListing.aspx?company_id=" + _admatch.store_.company_id;
 
 			StoreHyperLink.Text = _admatch.store_.suburb;
 			StoreHyperLink.NavigateUrl = "/manage/Stores/ViewStore.aspx?store_id=" + _admatch.store_id;

@@ -57,7 +57,7 @@ namespace WebApp.manage.Companies
 
 			Session["company_id"] = company_id;
 			Session["company_name"] = CompaniesDropDownList.SelectedItem;
-			Response.Redirect("/manage/Company/ViewCompany.aspx");
+			Response.Redirect("/manage/Companies/ViewCompany.aspx");
 		}
 	}
 }

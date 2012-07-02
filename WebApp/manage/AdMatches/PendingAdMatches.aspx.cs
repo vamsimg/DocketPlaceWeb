@@ -23,7 +23,7 @@ namespace WebApp.manage.AdMatches
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
 
-			BackHyperLink.NavigateUrl = "/manage/Company/ViewCompany.aspx?company_id=" + current_company.company_id;
+			BackHyperLink.NavigateUrl = "/manage/Companies/ViewCompany.aspx?company_id=" + current_company.company_id;
 
 
 			PopulatePendingMatches(current_company);

@@ -26,7 +26,7 @@ namespace WebApp.manage.AdMatches
 
 
 			AdvertiserHyperLink.Text = current_admatch.adgroup_.campaign_.company_.name;
-			AdvertiserHyperLink.NavigateUrl = "/manage/Company/CompanyListing.aspx?company_id=" + current_admatch.adgroup_.campaign_.company_id;
+			AdvertiserHyperLink.NavigateUrl = "/manage/Companies/CompanyListing.aspx?company_id=" + current_admatch.adgroup_.campaign_.company_id;
 
 			StoreHyperLink.Text = current_admatch.store_.suburb + " " + current_admatch.admatch_id;
 			StoreHyperLink.NavigateUrl = "/manage/Store/ViewStore.aspx?store_id=" + current_admatch.store_id;

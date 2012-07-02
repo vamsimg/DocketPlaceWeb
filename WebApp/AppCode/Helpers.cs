@@ -184,7 +184,7 @@ namespace WebApp.AppCode
 
 			if (HttpContext.Current.Session["company_id"] == null)
 			{
-				HttpContext.Current.Response.Redirect("/manage/Company/MyCompanies.aspx");
+				HttpContext.Current.Response.Redirect("/manage/Companies/MyCompanies.aspx");
 			}
 
 			int company_id = Convert.ToInt32(HttpContext.Current.Session["company_id"]);

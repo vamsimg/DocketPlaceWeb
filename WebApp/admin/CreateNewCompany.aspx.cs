@@ -75,7 +75,7 @@ namespace WebApp.admin
                               new_company.Refresh();
 
                               Session["company_id"] = new_company.company_id;
-                              Response.Redirect("/manage/Company/ViewCompany.aspx", false);
+                              Response.Redirect("/manage/Companies/ViewCompany.aspx", false);
                          }
                        
                          catch (Exception ex)

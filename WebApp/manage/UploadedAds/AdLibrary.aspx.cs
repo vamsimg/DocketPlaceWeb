@@ -38,7 +38,7 @@ namespace WebApp.manage.UploadedAds
 
 			HyperLink Level1 = new HyperLink();
 			Level1.Text = "Company";
-			Level1.NavigateUrl = "/manage/Company/ViewCompany.aspx";
+			Level1.NavigateUrl = "/manage/Companies/ViewCompany.aspx";
 
 			Literal arrows1 = new Literal();
 			arrows1.Text = " >> ";

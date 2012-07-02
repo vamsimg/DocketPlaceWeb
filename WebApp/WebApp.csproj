@@ -216,10 +216,6 @@
     <Content Include="ResetCustomerPassword.aspx" />
     <Content Include="ResetMerchantPassword.aspx" />
     <Content Include="Print.Master" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <None Include="Service References\EsendexAccount\AccountService.disco" />
     <None Include="Service References\EsendexAccount\configuration91.svcinfo" />
     <None Include="Service References\EsendexAccount\configuration.svcinfo" />
@@ -818,11 +814,6 @@
       <DependentUpon>Print.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="ResetCustomerPassword.aspx.cs">
       <DependentUpon>ResetCustomerPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
