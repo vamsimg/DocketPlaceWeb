@@ -8,6 +8,7 @@ using WebApp.AppCode;
 using System.Web.Routing;
 using Microsoft.ServiceModel.Activation;
 using System.ServiceModel.Activation;
+using System.Configuration;
 
 namespace WebApp
 {
@@ -27,9 +28,10 @@ namespace WebApp
 
           protected void Application_BeginRequest(Object sender, EventArgs e)
           {
-               if (!Request.IsSecureConnection)
+               bool IsSecure = Convert.ToBoolean(ConfigurationManager.AppSettings["IsSecure"]);
+               if (!Request.IsSecureConnection && IsSecure)
                {
-                   Response.Redirect(Request.Url.AbsoluteUri.Replace("http://", "https://"));
+                  Response.Redirect(Request.Url.AbsoluteUri.Replace("http://", "https://"));
                }
           }
 

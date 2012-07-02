@@ -13,6 +13,10 @@ namespace WebApp
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
+               if (Session["customer_id"] != null)
+               {
+                    Response.Redirect("/manage/SelectCompany.aspx");
+               }
 			
 			string error = Request.QueryString["error"];
 
@@ -74,7 +78,7 @@ namespace WebApp
 						FormsAuthentication.SetAuthCookie(sanitisedEmail, false);
 						FormsAuthentication.RedirectFromLoginPage(current_user.email, false);
 
-						Response.Redirect("~/manage/SelectCompany.aspx");
+						Response.Redirect("/manage/SelectCompany.aspx");
 
 					}
 					else
