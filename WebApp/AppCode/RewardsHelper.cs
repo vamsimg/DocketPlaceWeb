@@ -28,51 +28,68 @@ namespace WebApp.AppCode
 		/// <returns></returns>
 		public static Docket InsertNonRewardsDocket(AdProvider.LocalDocket localDocket, Store currentStore, bool sendEmail)
 		{
-			Docket newDocket = Docket.CreateDocket();
+               try
+               {
+                    Docket existingDocket = Docket.GetDocketByLocalIDAndStore(localDocket.local_id, currentStore.store_id);
+                    if (existingDocket != null)
+                    {                          
+                         return existingDocket;                    
+                    }
+                    else
+                    {
+
+                         Docket newDocket = Docket.CreateDocket();
+                         newDocket.local_id = localDocket.local_id;
+                         newDocket.code = Helpers.GenerateFiveDigitRandom();
+                         newDocket.store_id = currentStore.store_id;
+                         newDocket.creation_datetime = localDocket.creation_datetime;
+                         newDocket.raw_content = Helpers.DecodeFromBase64(localDocket.receipt_content);
+                         newDocket.total = localDocket.total;
+                         newDocket.reward_points = 0;
+                         newDocket.Save();
+                         newDocket.Refresh();
+
+                         if (currentStore.company_.are_lineitems_stored)
+                         {
+                              foreach (AdProvider.LocalDocketItem item in localDocket.itemList)
+                              {
+                                   DocketItem newItem = newDocket.CreateDocketItem();
+                                   newItem.product_code = item.product_code;
+                                   newItem.product_barcode = item.product_barcode;
+                                   newItem.description = item.description;
+                                   newItem.unit_cost = item.unit_cost;
+                                   newItem.quantity = item.quantity;
+                                   newItem.Save();
+                              }
+                         }
+
+                         if (localDocket.localCustomer != null)
+                         {
+                              Member memberRecord = ProcessCustomerInfo(localDocket.localCustomer, currentStore);
+
+                              memberRecord.frequency++;
+                              memberRecord.total_revenue += localDocket.total;
+
+                              memberRecord.Save();
+
+                              newDocket.customer_id = memberRecord.customer_id;
+                              newDocket.Save();
+                              newDocket.Refresh();
+
+                              if (newDocket.customer_.email != "" && newDocket.customer_.email_broken == false && sendEmail)
+                              {
+                                   EmailHelper.ReceiptEmail(newDocket.customer_.email, Helpers.DecodeFromBase64(localDocket.receipt_content), currentStore.company_.name);
+                              }
+                         }
+                         return newDocket;
+                    }                  
+
+               }
+               catch(Exception ex)
+               {
+                    throw ex;
+               }
 			
-			newDocket.code = Helpers.GenerateFiveDigitRandom();
-			newDocket.store_id = currentStore.store_id;
-			newDocket.creation_datetime = localDocket.creation_datetime;
-               newDocket.raw_content = "";
-			newDocket.total = localDocket.total;
-			newDocket.reward_points = 0;
-			newDocket.Save();
-			newDocket.Refresh();
-
-			if (currentStore.company_.are_lineitems_stored)
-			{
-				foreach (AdProvider.LocalDocketItem item in localDocket.itemList)
-				{
-					DocketItem newItem = newDocket.CreateDocketItem();
-					newItem.product_code = item.product_code;
-					newItem.product_barcode = item.product_barcode;
-					newItem.description = item.description;
-					newItem.unit_cost = item.unit_cost;
-					newItem.quantity = item.quantity;
-					newItem.Save();
-				}
-			}
-
-			if (localDocket.localCustomer != null)
-			{
-				Member memberRecord = ProcessCustomerInfo(localDocket.localCustomer, currentStore);
-
-				memberRecord.frequency++;
-				memberRecord.total_revenue += localDocket.total;
-
-				memberRecord.Save();
-
-				newDocket.customer_id = memberRecord.customer_id;
-				newDocket.Save();
-				newDocket.Refresh();
-
-				if (newDocket.customer_.email != "" && newDocket.customer_.email_broken == false && sendEmail)
-				{
-					EmailHelper.ReceiptEmail(newDocket.customer_.email, Helpers.DecodeFromBase64(localDocket.receipt_content), currentStore.company_.name);
-				}
-			}
-
-			return newDocket;
 		}
 
 
@@ -100,7 +117,7 @@ namespace WebApp.AppCode
 					newDocket.code = Helpers.GenerateFiveDigitRandom();
 					newDocket.store_id = currentStore.store_id;
 					newDocket.creation_datetime = localDocket.creation_datetime;
-                         newDocket.raw_content = "";
+                    newDocket.raw_content = Helpers.DecodeFromBase64(localDocket.receipt_content);;
 					newDocket.total = localDocket.total;
 					newDocket.reward_points = 0;
 					newDocket.Save();
@@ -554,7 +571,5 @@ namespace WebApp.AppCode
 
 			return sectionsUpdated;
 		}
-
-
 	}
 }
