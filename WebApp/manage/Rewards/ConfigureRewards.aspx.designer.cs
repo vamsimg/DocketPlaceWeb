@@ -13,13 +13,31 @@ namespace WebApp.manage.Rewards {
     public partial class ConfigureRewards {
         
         /// <summary>
-        /// PPDDropDownList control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PPDDropDownList;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
+        /// PPDTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PPDTextBox;
+        
+        /// <summary>
+        /// PPDTextBox_SliderExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.SliderExtender PPDTextBox_SliderExtender;
         
         /// <summary>
         /// EnableVouchersCheckBox control.
@@ -40,13 +58,22 @@ namespace WebApp.manage.Rewards {
         protected global::System.Web.UI.WebControls.Panel VouchersPanel;
         
         /// <summary>
-        /// PointsThresholdDropDownList control.
+        /// ThresholdTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList PointsThresholdDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox ThresholdTextBox;
+        
+        /// <summary>
+        /// ThresholdTextBox_SliderExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.SliderExtender ThresholdTextBox_SliderExtender;
         
         /// <summary>
         /// VoucherAmountDropDownList control.
@@ -76,13 +103,22 @@ namespace WebApp.manage.Rewards {
         protected global::System.Web.UI.WebControls.Literal CostLiteral;
         
         /// <summary>
-        /// ExpiryDropDownList control.
+        /// ExpiryDaysTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ExpiryDropDownList;
+        protected global::System.Web.UI.WebControls.TextBox ExpiryDaysTextBox;
+        
+        /// <summary>
+        /// ExpiryDaysTextBox_SliderExtender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.SliderExtender ExpiryDaysTextBox_SliderExtender;
         
         /// <summary>
         /// SaveButton control.
