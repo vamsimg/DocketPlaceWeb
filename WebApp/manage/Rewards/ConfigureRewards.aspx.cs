@@ -29,17 +29,17 @@ namespace WebApp.manage.Rewards
 
 			if (!IsPostBack)
 			{
-				PPDTextBox.Text = currentCompany.RewardSettingsBycompany_[0].points_per_dollar.ToString();
+				PPDDropDownList.SelectedValue = currentCompany.RewardSettingsBycompany_[0].points_per_dollar.ToString();
 
 				EnableVouchersCheckBox.Checked = currentCompany.RewardSettingsBycompany_[0].enable_vouchers;
 
 				VouchersPanel.Enabled = currentCompany.RewardSettingsBycompany_[0].enable_vouchers;
 				VouchersPanel.Visible = currentCompany.RewardSettingsBycompany_[0].enable_vouchers;
 
-                    ThresholdTextBox.Text = currentCompany.RewardSettingsBycompany_[0].points_threshold.ToString();
+				PointsThresholdDropDownList.SelectedValue = currentCompany.RewardSettingsBycompany_[0].points_threshold.ToString();
 				VoucherAmountDropDownList.SelectedValue = ((int)currentCompany.RewardSettingsBycompany_[0].voucher_amount).ToString();
 
-                    ExpiryDaysTextBox.Text = currentCompany.RewardSettingsBycompany_[0].expiry_days.ToString();
+				ExpiryDropDownList.SelectedValue = currentCompany.RewardSettingsBycompany_[0].expiry_days.ToString();
 
 				CostLiteral.Text = CalculateCostPerCustomer(currentCompany.RewardSettingsBycompany_[0].points_per_dollar, currentCompany.RewardSettingsBycompany_[0].points_threshold, currentCompany.RewardSettingsBycompany_[0].voucher_amount);
 			}
@@ -49,7 +49,7 @@ namespace WebApp.manage.Rewards
 
 		private void CheckPermission()
 		{
-			if (!(Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany)))
+			if (!(Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany) || Helpers.IsSuperUser(loggedInAdmin)))
 			{
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
@@ -61,7 +61,7 @@ namespace WebApp.manage.Rewards
 
 			HyperLink Level1 = new HyperLink();
 			Level1.Text = "Company";
-			Level1.NavigateUrl = "/manage/Companies/ViewCompany.aspx";
+			Level1.NavigateUrl = "/manage/Company/ViewCompany.aspx";
 
 			Literal arrows1 = new Literal();
 			arrows1.Text = " >> ";
@@ -108,8 +108,8 @@ namespace WebApp.manage.Rewards
 
 		protected void CalculateCostButton_Click(object sender, EventArgs e)
 		{
-               int ppd = Convert.ToInt32(PPDTextBox.Text);
-               int threshold = Convert.ToInt32(ThresholdTextBox.Text);
+			int ppd = Convert.ToInt32(PPDDropDownList.SelectedItem.Value);
+			int threshold = Convert.ToInt32(PointsThresholdDropDownList.SelectedItem.Value);
 			decimal voucher = Convert.ToDecimal(VoucherAmountDropDownList.SelectedItem.Value);
 
 			CostLiteral.Text = CalculateCostPerCustomer(ppd, threshold, voucher);
@@ -119,13 +119,13 @@ namespace WebApp.manage.Rewards
 		{
 			try
 			{
-                    currentCompany.RewardSettingsBycompany_[0].points_per_dollar = Convert.ToInt32(PPDTextBox.Text);
+				currentCompany.RewardSettingsBycompany_[0].points_per_dollar = Convert.ToInt32(PPDDropDownList.SelectedItem.Value);
 
 				currentCompany.RewardSettingsBycompany_[0].enable_vouchers = EnableVouchersCheckBox.Checked;
 
-                    currentCompany.RewardSettingsBycompany_[0].points_threshold = Convert.ToInt32(ThresholdTextBox.Text);
+				currentCompany.RewardSettingsBycompany_[0].points_threshold = Convert.ToInt32(PointsThresholdDropDownList.SelectedItem.Value);
 				currentCompany.RewardSettingsBycompany_[0].voucher_amount = Convert.ToDecimal(VoucherAmountDropDownList.SelectedItem.Value);
-                    currentCompany.RewardSettingsBycompany_[0].expiry_days = Convert.ToInt32(ExpiryDaysTextBox.Text);
+				currentCompany.RewardSettingsBycompany_[0].expiry_days = Convert.ToInt32(ExpiryDropDownList.SelectedItem.Value);
 
 				currentCompany.RewardSettingsBycompany_[0].Save();
 

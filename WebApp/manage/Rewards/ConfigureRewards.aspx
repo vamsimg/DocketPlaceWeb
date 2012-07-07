@@ -1,19 +1,26 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/web.Master" AutoEventWireup="true" CodeBehind="ConfigureRewards.aspx.cs" Inherits="WebApp.manage.Rewards.ConfigureRewards" %>
 
 
-
-<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="cc1" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContentPlaceHolder" Runat="Server">
-     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
 	<h1>Configure Rewards</h1>
 
 	
-	<span class="leftLabel">Points Per Dollar: </span>		
-          <asp:TextBox ID="PPDTextBox" runat="server"></asp:TextBox>
-	<cc1:SliderExtender ID="PPDTextBox_SliderExtender" runat="server" Enabled="True" Maximum="20" Minimum="1" Steps="1" TargetControlID="PPDTextBox">
-     </cc1:SliderExtender>
+	<span class="leftLabel">Points Per Dollar: </span>
+		<asp:DropDownList ID="PPDDropDownList" runat="server">
+			<asp:ListItem Value="1">1</asp:ListItem>
+			<asp:ListItem Value="2">2</asp:ListItem>
+			<asp:ListItem Value="3">3</asp:ListItem>
+               <asp:ListItem Value="4">4</asp:ListItem>
+			<asp:ListItem Value="5">5</asp:ListItem>
+			<asp:ListItem Value="6">6</asp:ListItem>
+               <asp:ListItem Value="7">7</asp:ListItem>
+			<asp:ListItem Value="8">8</asp:ListItem>
+			<asp:ListItem Value="9">9</asp:ListItem>
+               <asp:ListItem Value="10">10</asp:ListItem>
+			
+		</asp:DropDownList>
+
 	<div class="brclear"></div>	
 
 	<span class="leftLabel">Enable Vouchers ? </span>
@@ -25,9 +32,18 @@
 	<asp:Panel ID="VouchersPanel" runat="server">	
 
 		<span class="leftLabel">Points Threshold: </span>
-			 <asp:TextBox ID="ThresholdTextBox" runat="server"></asp:TextBox>
-                    <cc1:SliderExtender ID="ThresholdTextBox_SliderExtender" runat="server" Enabled="True" Maximum="1000" Minimum="100" Steps="50" TargetControlID="PPDTextBox">
-                    </cc1:SliderExtender>
+			<asp:DropDownList ID="PointsThresholdDropDownList" runat="server">
+				<asp:ListItem Value="100">100</asp:ListItem>
+				<asp:ListItem Value="200">200</asp:ListItem>
+				<asp:ListItem Value="300">300</asp:ListItem>
+                    <asp:ListItem Value="400">400</asp:ListItem>
+				<asp:ListItem Value="500">500</asp:ListItem>
+                    <asp:ListItem Value="600">600</asp:ListItem>
+				<asp:ListItem Value="700">700</asp:ListItem>
+                    <asp:ListItem Value="800">800</asp:ListItem>
+				<asp:ListItem Value="900">900</asp:ListItem>
+                    <asp:ListItem Value="1000">1000</asp:ListItem>
+			</asp:DropDownList>
 
 		<div class="brclear"></div>			
 
@@ -47,9 +63,14 @@
 		<br />
 
 		<span class="leftLabel">Days before Voucher Expires:</span>
-			 <asp:TextBox ID="ExpiryDaysTextBox" runat="server"></asp:TextBox>
-                    <cc1:SliderExtender ID="ExpiryDaysTextBox_SliderExtender" runat="server" Enabled="True" Maximum="60" Minimum="1" Steps="3" TargetControlID="PPDTextBox">
-                    </cc1:SliderExtender>
+			<asp:DropDownList ID="ExpiryDropDownList" runat="server">
+                    <asp:ListItem Value="5">5</asp:ListItem>
+				<asp:ListItem Value="10">10</asp:ListItem>
+				<asp:ListItem Value="15">15</asp:ListItem>
+				<asp:ListItem Value="20">20</asp:ListItem>
+				<asp:ListItem Value="25">25</asp:ListItem>
+				<asp:ListItem Value="30">30</asp:ListItem>
+			</asp:DropDownList>
 		
 		<div class="brclear"></div>		
 	
