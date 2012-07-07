@@ -13,8 +13,8 @@ namespace WebApp.admin
      public partial class BulkUploader : System.Web.UI.Page
      {
 
-          private int companyId = 9;
-          private int storeID = 25;
+          private int companyId = 18;
+          private int storeID = 26;
 
           private Admin loggedInAdmin;
 
