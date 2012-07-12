@@ -116,10 +116,10 @@ namespace DocketPlace.Business
 			this.Save();
 		}
 
-
+        
 		public string ResetPassword()
 		{
-			string new_password = System.IO.Path.ChangeExtension(System.IO.Path.GetRandomFileName(), null);
+               string new_password = BusinessHelper.GenerateSevenDigitRandom();
 
 			try
 			{
