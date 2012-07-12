@@ -17,7 +17,8 @@ namespace WebApp
 
 		void Application_Start(object sender, EventArgs e)
 		{
-			
+               // Code that runs on application startup
+               RouteTable.Routes.Add(new ServiceRoute("CustomerMobileHandler", new WebServiceHostFactory3(), typeof(WebApp.services.CustomerMobileHandler)));
 		}
 
 		void Application_End(object sender, EventArgs e)

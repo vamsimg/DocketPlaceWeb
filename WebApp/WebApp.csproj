@@ -108,12 +108,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AboutUs.aspx" />
-    <Content Include="admin\BulkUploader.aspx" />
     <Content Include="admin\CreateInvoice.aspx" />
     <Content Include="admin\CreateNewCompany.aspx" />
     <Content Include="admin\ProcessReplies.aspx" />
-    <Content Include="admin\UploadCustomers.aspx" />
-    <Content Include="admin\UploadDockets.aspx" />
     <Content Include="AdProvider.asmx" />
     <Content Include="Compatibility.aspx" />
     <Content Include="ContactUs.aspx" />
@@ -169,6 +166,7 @@
     <Content Include="images\logo.png" />
     <Content Include="images\MC_MonkeyReward_13.png" />
     <Content Include="images\MC_MonkeyReward_25.png" />
+    <Content Include="images\mrswatson1.png" />
     <Content Include="images\SignUpButton.jpg" />
     <Content Include="images\SolidConnection.png" />
     <Content Include="images\topnav_background.jpg" />
@@ -257,6 +255,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="services\CustomerMobileHandler.svc" />
     <Content Include="services\UploaderWebService.asmx" />
     <Content Include="Status.aspx" />
     <Content Include="temp\deploydummy.txt" />
@@ -293,10 +292,6 @@
     <None Include="Service References\EsendexSend\WebApp.EsendexSend.MessageStatusCode.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <Content Include="Web.Home.config">
-      <DependentUpon>Web.config</DependentUpon>
-      <IsTransformFile>True</IsTransformFile>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutUs.aspx.cs">
@@ -305,13 +300,6 @@
     </Compile>
     <Compile Include="AboutUs.aspx.designer.cs">
       <DependentUpon>AboutUs.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\BulkUploader.aspx.cs">
-      <DependentUpon>BulkUploader.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\BulkUploader.aspx.designer.cs">
-      <DependentUpon>BulkUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\CreateInvoice.aspx.cs">
       <DependentUpon>CreateInvoice.aspx</DependentUpon>
@@ -333,20 +321,6 @@
     </Compile>
     <Compile Include="admin\ProcessReplies.aspx.designer.cs">
       <DependentUpon>ProcessReplies.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\UploadCustomers.aspx.cs">
-      <DependentUpon>UploadCustomers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\UploadCustomers.aspx.designer.cs">
-      <DependentUpon>UploadCustomers.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="admin\UploadDockets.aspx.cs">
-      <DependentUpon>UploadDockets.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="admin\UploadDockets.aspx.designer.cs">
-      <DependentUpon>UploadDockets.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdProvider.asmx.cs">
       <DependentUpon>AdProvider.asmx</DependentUpon>
@@ -876,6 +850,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="services\CustomerMobileHandler.svc.cs">
+      <DependentUpon>CustomerMobileHandler.svc</DependentUpon>
     </Compile>
     <Compile Include="services\UploaderWebService.asmx.cs">
       <DependentUpon>UploaderWebService.asmx</DependentUpon>
