@@ -152,6 +152,7 @@
     <Content Include="icons\zoom.png" />
     <Content Include="images\arrow_down.png" />
     <Content Include="images\arrow_up.png" />
+    <Content Include="images\banner.png" />
     <Content Include="images\default.png" />
     <Content Include="images\delete.png" />
     <Content Include="images\dp-logo2small.png" />

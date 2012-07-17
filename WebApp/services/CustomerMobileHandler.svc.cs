@@ -12,6 +12,7 @@ using System.Web.Script.Serialization;
 using System.IO;
 using System.Globalization;
 using System.Web;
+using DocketPlace.Business.Framework;
 
 namespace WebApp.services
 {
@@ -164,7 +165,7 @@ namespace WebApp.services
                                    store.company_id = item.company_id.ToString();
                                    store.barcode = item.local_barcode_id;
                                    store.current_points = item.reward_points.ToString();
-                                   store.needed_points = (item.company_.RewardSettingsBycompany_[0].points_threshold - item.reward_points).ToString();
+                                   store.needed_points = (item.company_.RewardSettingsBycompany_[0].points_threshold).ToString();
                                    store.base64Icon = base64Icon;
                                    store.base64Banner = base64Icon;
                                    store.info = "Hello World";
@@ -232,7 +233,16 @@ namespace WebApp.services
                                    var receipt = new LocalReceipt();
                                    receipt.receipt_id = item.docket_id.ToString();
                                    receipt.company_id = item.store_.company_id.ToString();
-                                   receipt.content = item.raw_content;
+
+                                   if (String.IsNullOrEmpty(item.raw_content))
+                                   {
+                                        receipt.content = GenerateItemContent(item.DocketItemsBydocket_);
+                                   }
+                                   else
+                                   {
+                                        receipt.content = item.raw_content;
+                                   }
+
                                    receipt.total = item.total.ToString("#0.00");
                                    receipt.points = item.reward_points.ToString();
                                    receipt.creation_datetime = item.creation_datetime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -272,6 +282,10 @@ namespace WebApp.services
                byte[] iconBytes = File.ReadAllBytes(iconPath);
                string base64Icon = System.Convert.ToBase64String(iconBytes);
 
+               string bannerPath = System.Web.HttpContext.Current.Server.MapPath("/images/banner.png");
+               byte[] bannerBytes = File.ReadAllBytes(bannerPath);
+               string base64Banner = System.Convert.ToBase64String(bannerBytes);
+
                CultureInfo provider = CultureInfo.InvariantCulture;
 
                DateTime lastReceiptDate = DateTime.ParseExact(HttpUtility.UrlDecode(date), "yyyy-MM-dd_HH-mm-ss", provider);
@@ -303,7 +317,15 @@ namespace WebApp.services
                                    var receipt = new LocalReceipt();
                                    receipt.receipt_id = item.docket_id.ToString();
                                    receipt.company_id = item.store_.company_id.ToString();
-                                   receipt.content = item.raw_content;
+                                   if(String.IsNullOrEmpty(item.raw_content))
+                                   {
+                                        receipt.content = GenerateItemContent(item.DocketItemsBydocket_);
+                                   }
+                                   else
+                                   {
+                                        receipt.content = item.raw_content;
+                                   }
+                                   
                                    receipt.total = item.total.ToString("#0.00");
                                    receipt.points = item.reward_points.ToString();
                                    receipt.creation_datetime = item.creation_datetime.ToString("yyyy-MM-dd HH:mm:ss");
@@ -327,9 +349,9 @@ namespace WebApp.services
                                    store.company_id = item.company_id.ToString();
                                    store.barcode = item.local_barcode_id;
                                    store.current_points = item.reward_points.ToString();
-                                   store.needed_points = (item.company_.RewardSettingsBycompany_[0].points_threshold - item.reward_points).ToString();
+                                   store.needed_points = (item.company_.RewardSettingsBycompany_[0].points_threshold).ToString();
                                    store.base64Icon = base64Icon;
-                                   store.base64Banner = base64Icon;
+                                   store.base64Banner = base64Banner;
                                    store.info = "Hello World";
                                    stores.Add(store);
                               }
@@ -354,6 +376,18 @@ namespace WebApp.services
                return newResponse;
 
           }
+
+
+          private string GenerateItemContent(EntityList<DocketItem> items)
+          {
+               string content = "";
+               foreach (var item in items)
+               {
+                    content += item.description + " * " + item.quantity.ToString() + " @" + item.unit_cost.ToString("#0.00") + " = $" + (item.quantity * (double)item.unit_cost).ToString("#0.00") +"\n\n";
+               }
+               return content;
+          }
+
 
 
           //[WebGet(UriTemplate = "/Messages/{email}/{password}/{date}/{client_type}", ResponseFormat = WebMessageFormat.Json)]
