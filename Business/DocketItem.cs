@@ -27,7 +27,21 @@ namespace DocketPlace.Business
 	/// This object represents the properties and methods of a DocketItem.
 	/// </summary>
 	public partial class DocketItem : EntityBase
-	{	
+	{
+          public decimal unitGrossProfit
+          {
+               get 
+               {
+                    return(this.sale_ex - this.cost_ex);               
+               }
+          }
 
+          public decimal totalGrossProfit
+          {
+               get
+               {
+                    return (this.unitGrossProfit * Convert.ToDecimal(this.quantity));
+               }
+          }
 	}
 }

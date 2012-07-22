@@ -77,8 +77,10 @@ Create Table DocketItems
 	docketitem_id		int				PRIMARY KEY IDENTITY(1,1),
 	docket_id			int				FOREIGN KEY REFERENCES Dockets(docket_id)	NOT NULL,				
 	product_code		varchar(100),
-	product_barcode		varchar(100),
+	product_barcode		varchar(100),	
 	description			varchar(200)	NOT NULL,
+	department			varchar(100),		
+	goods_cost				money			NOT NULL,
 	unit_cost				money			NOT NULL,
 	quantity			float			NOT NULL
 )

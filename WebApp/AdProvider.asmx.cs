@@ -65,8 +65,11 @@ namespace WebApp
 			public string product_code;
 			public string product_barcode;
 			public string description;
-			public decimal unit_cost;
-			public double quantity;
+               public string department;               
+               public decimal unit_cost;
+               public decimal cost_ex;
+               public decimal sale_ex;
+               public double quantity;
 
 		}
 

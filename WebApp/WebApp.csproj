@@ -235,6 +235,8 @@
     <Content Include="ResetCustomerPassword.aspx" />
     <Content Include="ResetMerchantPassword.aspx" />
     <Content Include="Print.Master" />
+    <None Include="Properties\PublishProfiles\Release.pubxml" />
+    <None Include="Properties\PublishProfiles\Testing.pubxml" />
     <None Include="Service References\EsendexAccount\AccountService.disco" />
     <None Include="Service References\EsendexAccount\configuration91.svcinfo" />
     <None Include="Service References\EsendexAccount\configuration.svcinfo" />

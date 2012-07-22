@@ -56,8 +56,11 @@ namespace WebApp.AppCode
                                    DocketItem newItem = newDocket.CreateDocketItem();
                                    newItem.product_code = item.product_code;
                                    newItem.product_barcode = item.product_barcode;
-                                   newItem.description = item.description;
+                                   newItem.department = item.department;
+                                   newItem.description = item.description;                                  
                                    newItem.unit_cost = item.unit_cost;
+                                   newItem.cost_ex = item.cost_ex;
+                                   newItem.sale_ex = item.sale_ex;
                                    newItem.quantity = item.quantity;
                                    newItem.Save();
                               }
@@ -117,7 +120,7 @@ namespace WebApp.AppCode
 					newDocket.code = Helpers.GenerateFiveDigitRandom();
 					newDocket.store_id = currentStore.store_id;
 					newDocket.creation_datetime = localDocket.creation_datetime;
-                    newDocket.raw_content = Helpers.DecodeFromBase64(localDocket.receipt_content);;
+                         newDocket.raw_content = Helpers.DecodeFromBase64(localDocket.receipt_content);;
 					newDocket.total = localDocket.total;
 					newDocket.reward_points = 0;
 					newDocket.Save();
@@ -132,8 +135,11 @@ namespace WebApp.AppCode
 							DocketItem newItem = newDocket.CreateDocketItem();
 							newItem.product_code = item.product_code;
 							newItem.product_barcode = item.product_barcode;
-							newItem.description = item.description;
+                                   newItem.department = item.department;
+                                   newItem.description = item.description;                                  
 							newItem.unit_cost = item.unit_cost;
+                                   newItem.cost_ex = item.cost_ex;
+                                   newItem.sale_ex = item.sale_ex;
 							newItem.quantity = item.quantity;
 							newItem.Save();
 						}
