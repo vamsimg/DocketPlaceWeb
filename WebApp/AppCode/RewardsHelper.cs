@@ -57,10 +57,12 @@ namespace WebApp.AppCode
                                    newItem.product_code = item.product_code;
                                    newItem.product_barcode = item.product_barcode;
                                    newItem.department = item.department;
+                                   newItem.category = item.category;
                                    newItem.description = item.description;                                  
-                                   newItem.unit_cost = item.unit_cost;
+                                   
                                    newItem.cost_ex = item.cost_ex;
                                    newItem.sale_ex = item.sale_ex;
+                                   newItem.sale_inc = item.sale_inc;
                                    newItem.quantity = item.quantity;
                                    newItem.Save();
                               }
@@ -136,10 +138,12 @@ namespace WebApp.AppCode
 							newItem.product_code = item.product_code;
 							newItem.product_barcode = item.product_barcode;
                                    newItem.department = item.department;
+                                   newItem.category = item.category;
                                    newItem.description = item.description;                                  
-							newItem.unit_cost = item.unit_cost;
+							
                                    newItem.cost_ex = item.cost_ex;
                                    newItem.sale_ex = item.sale_ex;
+                                   newItem.sale_inc = item.sale_inc;
 							newItem.quantity = item.quantity;
 							newItem.Save();
 						}

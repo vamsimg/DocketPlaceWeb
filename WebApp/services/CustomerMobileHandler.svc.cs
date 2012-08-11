@@ -383,7 +383,7 @@ namespace WebApp.services
                string content = "";
                foreach (var item in items)
                {
-                    content += item.description + " * " + item.quantity.ToString() + " @" + item.unit_cost.ToString("#0.00") + " = $" + (item.quantity * (double)item.unit_cost).ToString("#0.00") +"\n\n";
+                    content += item.description + " * " + item.quantity.ToString() + " @" + item.sale_inc.ToString("#0.00") + " = $" + (item.quantity * (double)item.sale_inc).ToString("#0.00") +"\n\n";
                }
                return content;
           }
