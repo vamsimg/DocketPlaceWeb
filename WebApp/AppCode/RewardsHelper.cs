@@ -122,7 +122,7 @@ namespace WebApp.AppCode
 					newDocket.code = Helpers.GenerateFiveDigitRandom();
 					newDocket.store_id = currentStore.store_id;
 					newDocket.creation_datetime = localDocket.creation_datetime;
-                         newDocket.raw_content = Helpers.DecodeFromBase64(localDocket.receipt_content);;
+                         newDocket.raw_content = Helpers.DecodeFromBase64(localDocket.receipt_content);
 					newDocket.total = localDocket.total;
 					newDocket.reward_points = 0;
 					newDocket.Save();
