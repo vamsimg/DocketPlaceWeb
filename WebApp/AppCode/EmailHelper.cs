@@ -323,10 +323,9 @@ namespace WebApp.AppCode
 			string serverPath = HttpContext.Current.Server.MapPath("/email/");
 			string body = File.ReadAllText(serverPath + "ReceiptEmail.htm");
 
-               content = content.Replace('<',' ').Replace('>',' ');
+               
 
-			body = body.Replace("$content", content);
-
+			body = body.Replace("$content", HttpUtility.HtmlEncode(content));
 			mail.IsBodyHtml = true;
 			mail.Body = body;
 
