@@ -333,11 +333,7 @@ namespace WebApp.AppCode
 
 							Member newMember = CreateMemberRecord(currentStore, newCustomer, localCustomer);
 
-							if (newCustomer.email != "")
-							{
-								//Send receipt by email.						
-								EmailHelper.CustomerAccountCreationEmail(newCustomer.email, newCustomer.full_name, newPassword, currentStore.company_.name);
-							}
+							
 							return newMember;
 						}
 						else
