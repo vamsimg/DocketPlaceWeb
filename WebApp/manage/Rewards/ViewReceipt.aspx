@@ -6,7 +6,7 @@
 
 	<h1>View Receipt</h1>
 
-	<asp:Literal ID="DocketTextLiteral" runat="server"></asp:Literal>
+	<pre><asp:Literal ID="DocketTextLiteral" runat="server"></asp:Literal></pre>
 
 </asp:Content>
 

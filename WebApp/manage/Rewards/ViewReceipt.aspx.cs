@@ -24,7 +24,7 @@ namespace WebApp.manage.Rewards
 			currentDocket = Helpers.GetCurrentDocket();
 			if (currentDocket.store_.company_id == currentCompany.company_id)
 			{
-				DocketTextLiteral.Text = currentDocket.raw_content.Replace("\r", "<br />").Replace("\n", "<br />");
+                    DocketTextLiteral.Text =  Server.HtmlEncode(currentDocket.raw_content);
 			}
 			else
 			{

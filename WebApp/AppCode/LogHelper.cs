@@ -97,7 +97,7 @@ namespace WebApp.AppCode
 			}
 			catch (Exception ex)
 			{
-				WriteError(ex.Message);
+                    throw;
 			}
 		}
 
@@ -120,7 +120,7 @@ namespace WebApp.AppCode
 			}
 			catch (Exception ex)
 			{
-				WriteError(ex.Message);
+                    throw;
 			}
 		}
 
