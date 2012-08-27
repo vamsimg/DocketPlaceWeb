@@ -373,7 +373,7 @@ namespace WebApp.AppCode
 			Image img = BusinessHelper.DecodeAd(inputbase64EncodedImage);
 			string directory = System.Environment.CurrentDirectory;
 
-			string serverPath = HttpContext.Current.Server.MapPath("/manage/UploadedAds/temp/");
+			string serverPath = HttpContext.Current.Server.MapPath("/temp/");
 
 			string random_appendage = BusinessHelper.computeSHAhash(inputbase64EncodedImage, DateTime.Now);
 
@@ -381,7 +381,7 @@ namespace WebApp.AppCode
 
 			img.Save(tempfilename, ImageFormat.Png);
 
-			file_location = "/manage/UploadedAds/temp/" + random_appendage + ".png";
+			file_location = "/temp/" + random_appendage + ".png";
 
 
 			return file_location;
