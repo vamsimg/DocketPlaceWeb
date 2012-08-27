@@ -295,61 +295,44 @@ namespace WebApp.AppCode
 				string sanitisedMobile = localCustomer.mobile.Trim().Replace(" ", "");
 				Customer existingCustomer = Customer.GetCustomerByEmail(sanitisedEmail);
 
+				
 				if (existingCustomer == null)
 				{
-					existingCustomer = Customer.GetCustomerByMobile(sanitisedMobile);
+					Customer newCustomer = Customer.CreateCustomer();
+					newCustomer.title = localCustomer.title;
+					newCustomer.first_name = localCustomer.first_name;
+					newCustomer.last_name = localCustomer.last_name;
 
-					if (existingCustomer == null)
-					{
-						existingCustomer = Customer.GetCustomerByPhone(localCustomer.phone);
-
-						if (existingCustomer == null)
-						{
-							Customer newCustomer = Customer.CreateCustomer();
-							newCustomer.title = localCustomer.title;
-							newCustomer.first_name = localCustomer.first_name;
-							newCustomer.last_name = localCustomer.last_name;
-
-							newCustomer.email = sanitisedEmail;
-							newCustomer.email_broken = false;
-							newCustomer.mobile = sanitisedMobile;
-							newCustomer.mobile_broken = false;
-							newCustomer.phone = localCustomer.phone;
-							newCustomer.suburb = localCustomer.suburb;
-							newCustomer.postcode = localCustomer.postcode;
-							newCustomer.verification_code = Helpers.GenerateFiveDigitRandom();
-							newCustomer.is_active = true;
+					newCustomer.email = sanitisedEmail;
+					newCustomer.email_broken = false;
+					newCustomer.mobile = sanitisedMobile;
+					newCustomer.mobile_broken = false;
+					newCustomer.phone = localCustomer.phone;
+					newCustomer.suburb = localCustomer.suburb;
+					newCustomer.postcode = localCustomer.postcode;
+					newCustomer.verification_code = Helpers.GenerateFiveDigitRandom();
+					newCustomer.is_active = true;
 
 
-							newCustomer.creation_datetime = DateTime.Now;
+					newCustomer.creation_datetime = DateTime.Now;
 
-							string newPassword = Helpers.GenerateFiveDigitRandom();
-							newCustomer.password_hash = BusinessHelper.computeSHAhash(newPassword, newCustomer.creation_datetime);
-
-
-							newCustomer.Save();
-							newCustomer.Refresh();
+					string newPassword = Helpers.GenerateFiveDigitRandom();
+					newCustomer.password_hash = BusinessHelper.computeSHAhash(newPassword, newCustomer.creation_datetime);
 
 
-							Member newMember = CreateMemberRecord(currentStore, newCustomer, localCustomer);
+					newCustomer.Save();
+					newCustomer.Refresh();
+
+
+					Member newMember = CreateMemberRecord(currentStore, newCustomer, localCustomer);
 
 							
-							return newMember;
-						}
-						else
-						{
-							return CreateMemberRecord(currentStore, existingCustomer, localCustomer);
-						}
-					}
-					else
-					{
-						return CreateMemberRecord(currentStore, existingCustomer, localCustomer);
-					}
+					return newMember;
 				}
 				else
 				{
 					return CreateMemberRecord(currentStore, existingCustomer, localCustomer);
-				}
+				}					
 			}
 			else
 			{
@@ -427,64 +410,45 @@ namespace WebApp.AppCode
 
 					if (existingCustomer == null)
 					{
-						existingCustomer = Customer.GetCustomerByMobile(sanitisedMobile);
+						Customer newCustomer = Customer.CreateCustomer();
+						newCustomer.title = localCustomer.title;
+						newCustomer.first_name = localCustomer.first_name;
+						newCustomer.last_name = localCustomer.last_name;
 
-						if (existingCustomer == null)
+						newCustomer.email = sanitisedEmail;
+						newCustomer.email_broken = false;
+						newCustomer.mobile = sanitisedMobile;
+						newCustomer.mobile_broken = false;
+						newCustomer.phone = localCustomer.phone;
+						newCustomer.suburb = localCustomer.suburb;
+						newCustomer.postcode = localCustomer.postcode;
+						newCustomer.verification_code = Helpers.GenerateFiveDigitRandom();
+						newCustomer.is_active = true;
+
+
+						newCustomer.creation_datetime = DateTime.Now;
+
+						string newPassword = Helpers.GenerateFiveDigitRandom();
+						newCustomer.password_hash = BusinessHelper.computeSHAhash(newPassword, newCustomer.creation_datetime);
+
+
+						newCustomer.Save();
+						newCustomer.Refresh();
+
+
+						Member newMember = CreateMemberRecord(currentStore, newCustomer, localCustomer);
+
+						if (newCustomer.email != "")
 						{
-							existingCustomer = Customer.GetCustomerByPhone(localCustomer.phone);
-
-							if (existingCustomer == null)
-							{
-								Customer newCustomer = Customer.CreateCustomer();
-								newCustomer.title = localCustomer.title;
-								newCustomer.first_name = localCustomer.first_name;
-								newCustomer.last_name = localCustomer.last_name;
-
-								newCustomer.email = sanitisedEmail;
-								newCustomer.email_broken = false;
-								newCustomer.mobile = sanitisedMobile;
-								newCustomer.mobile_broken = false;
-								newCustomer.phone = localCustomer.phone;
-								newCustomer.suburb = localCustomer.suburb;
-								newCustomer.postcode = localCustomer.postcode;
-								newCustomer.verification_code = Helpers.GenerateFiveDigitRandom();
-								newCustomer.is_active = true;
-
-
-								newCustomer.creation_datetime = DateTime.Now;
-
-								string newPassword = Helpers.GenerateFiveDigitRandom();
-								newCustomer.password_hash = BusinessHelper.computeSHAhash(newPassword, newCustomer.creation_datetime);
-
-
-								newCustomer.Save();
-								newCustomer.Refresh();
-
-
-								Member newMember = CreateMemberRecord(currentStore, newCustomer, localCustomer);
-
-								if (newCustomer.email != "")
-								{
-									//Send new account email.						
-									//EmailHelper.CustomerAccountCreationEmail(newCustomer.email, newCustomer.full_name, newPassword, currentStore.company_.name);
-								}
-								return "Customer number: " + localCustomer.customer_id + " created.";
-							}
-							else
-							{
-								return MakeActualCustomerUpdate(localCustomer, currentStore, existingCustomer);
-							}
+							//Send new account email.						
+							//EmailHelper.CustomerAccountCreationEmail(newCustomer.email, newCustomer.full_name, newPassword, currentStore.company_.name);
 						}
-						else
-						{
-							return MakeActualCustomerUpdate(localCustomer, currentStore, existingCustomer);
-						}
+						return "Customer number: " + localCustomer.customer_id + " created.";
 					}
 					else
 					{
-
 						return MakeActualCustomerUpdate(localCustomer, currentStore, existingCustomer);
-					}
+					}						
 				}
 				else
 				{
