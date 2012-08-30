@@ -168,13 +168,13 @@ namespace WebApp.AppCode
 
 			// create a command object
 
-               string selectCommand = @"product_code, product_barcode, description, department, category, cost_ex, sale_ex,sale_inc, COUNT(*) as total_count, (sale_ex * COUNT(*)) as total_revenue
-							FROM Dockets as d
-							INNER JOIN DocketItems as i
-							on d.docket_id = i.docket_id
-							where store_id = @store_id and creation_datetime >= @start_date AND creation_datetime < @end_date
-							GROUP BY product_code, product_barcode, description, cost_ex, sale_ex, sale_inc, department, category
-							order by total_count desc";
+               string selectCommand = @"SELECT product_code, product_barcode, description, department, category, cost_ex, sale_ex,sale_inc, COUNT(*) as total_count, (sale_ex * COUNT(*)) as total_revenue
+							     FROM Dockets as d
+						          INNER JOIN DocketItems as i
+						          on d.docket_id = i.docket_id
+						          where store_id = @store_id and creation_datetime >= @start_date AND creation_datetime < @end_date
+						          GROUP BY product_code, product_barcode, description, cost_ex, sale_ex, sale_inc, department, category
+						          order by total_count desc";
 
 			SqlCommand command = new SqlCommand(selectCommand, connection);
 
@@ -207,8 +207,8 @@ namespace WebApp.AppCode
 			// create a command object
 
 			string selectCommand = @"SELECT  COUNT(*) as frequency, SUM(d.total) as total_revenue
-							FROM Dockets as d
-							where store_id = @store_id and d.creation_datetime >= @start_date AND d.creation_datetime < @end_date and d.customer_id IS NULL ";
+							     FROM Dockets as d
+							     where store_id = @store_id and d.creation_datetime >= @start_date AND d.creation_datetime < @end_date and d.customer_id IS NULL ";
 
 
 			SqlCommand command = new SqlCommand(selectCommand, connection);
@@ -242,12 +242,12 @@ namespace WebApp.AppCode
 			// create a command object
 
 			string selectCommand = @"SELECT  COUNT(*) as frequency, SUM(d.total) as total_revenue, title, first_name,last_name,suburb,mobile, d.customer_id
-							FROM Dockets as d
-							INNER JOIN Customers as c
-							on d.customer_id = c.customer_id
-							where store_id = @store_id and d.creation_datetime >= @start_date AND d.creation_datetime < @end_date
-							GROUP BY d.customer_id, title, first_name,last_name,suburb,mobile
-							order by SUM(d.total) desc";
+							     FROM Dockets as d
+							     INNER JOIN Customers as c
+							     on d.customer_id = c.customer_id
+							     where store_id = @store_id and d.creation_datetime >= @start_date AND d.creation_datetime < @end_date
+							     GROUP BY d.customer_id, title, first_name,last_name,suburb,mobile
+							     order by SUM(d.total) desc";
 
 			SqlCommand command = new SqlCommand(selectCommand, connection);
 
@@ -280,9 +280,9 @@ namespace WebApp.AppCode
 			// create a command object
 
 			string selectCommand = @"SELECT datepart(dd,creation_datetime) AS day, COUNT(*) as daily_count 
-							FROM Members 
-							WHERE  store_id = @store_id and DATEPART(mm, creation_datetime) = @month and DATEPART(yy, creation_datetime) = @year
-							GROUP BY datepart(dd,creation_datetime)";
+							     FROM Members 
+							     WHERE  store_id = @store_id and DATEPART(mm, creation_datetime) = @month and DATEPART(yy, creation_datetime) = @year
+							     GROUP BY datepart(dd,creation_datetime)";
 
 			SqlCommand command = new SqlCommand(selectCommand, connection);
 
@@ -316,12 +316,12 @@ namespace WebApp.AppCode
                //TODO Check query accuracy
 
                string selectCommand = @"SELECT  product_code,description, department, category, cost_ex, sale_ex,sale_inc, COUNT(*) as total_count, (sale_ex * COUNT(*)) as total_revenue
-							FROM Dockets as d
-							INNER JOIN DocketItems as i
-							on d.docket_id = i.docket_id
-							where store_id = @store_id and d.customer_id = @customer_id
-							GROUP BY product_code, description, cost_ex, sale_ex, sale_inc, department, category
-							order by total_count desc";
+							     FROM Dockets as d
+							     INNER JOIN DocketItems as i
+							     on d.docket_id = i.docket_id
+							     where store_id = @store_id and d.customer_id = @customer_id
+							     GROUP BY product_code, description, cost_ex, sale_ex, sale_inc, department, category
+							     order by total_count desc";
 
 
 
@@ -356,8 +356,8 @@ namespace WebApp.AppCode
 			// create a command object
 
 			string selectCommand = @"SELECT *  
-							FROM Vouchers
-							WHERE  company_id = @company_id and d.creation_datetime >= @start_date AND d.creation_datetime < @end_date";
+							     FROM Vouchers
+							     WHERE  company_id = @company_id and d.creation_datetime >= @start_date AND d.creation_datetime < @end_date";
 
 			SqlCommand command = new SqlCommand(selectCommand, connection);
 

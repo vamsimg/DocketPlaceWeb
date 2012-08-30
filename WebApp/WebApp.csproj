@@ -144,7 +144,6 @@
     <Content Include="admin\CreateInvoice.aspx" />
     <Content Include="admin\CreateNewCompany.aspx" />
     <Content Include="admin\ProcessReplies.aspx" />
-    <Content Include="AdProvider.asmx" />
     <Content Include="Compatibility.aspx" />
     <Content Include="ContactUs.aspx" />
     <Content Include="cronjobs\DailyJob.aspx" />
@@ -288,8 +287,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <Content Include="services\CustomerMobileHandler.svc" />
-    <Content Include="services\UploaderWebService.asmx" />
     <Content Include="Status.aspx" />
     <Content Include="temp\deploydummy.txt" />
     <Content Include="VoucherValidator.aspx" />
@@ -368,17 +365,12 @@
     <Compile Include="admin\ProcessReplies.aspx.designer.cs">
       <DependentUpon>ProcessReplies.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdProvider.asmx.cs">
-      <DependentUpon>AdProvider.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="AppCode\EmailHelper.cs" />
     <Compile Include="AppCode\ErrorHelper.cs" />
     <Compile Include="AppCode\Helpers.cs" />
     <Compile Include="AppCode\LogHelper.cs" />
     <Compile Include="AppCode\QRHelper.cs" />
     <Compile Include="AppCode\ReportsHelper.cs" />
-    <Compile Include="AppCode\RewardsHelper.cs" />
     <Compile Include="AppCode\SMSHelper.cs" />
     <Compile Include="AppCode\ZipHelper.cs" />
     <Compile Include="Compatibility.aspx.cs">
@@ -868,13 +860,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
-    <Compile Include="services\CustomerMobileHandler.svc.cs">
-      <DependentUpon>CustomerMobileHandler.svc</DependentUpon>
-    </Compile>
-    <Compile Include="services\UploaderWebService.asmx.cs">
-      <DependentUpon>UploaderWebService.asmx</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Status.aspx.cs">
       <DependentUpon>Status.aspx</DependentUpon>

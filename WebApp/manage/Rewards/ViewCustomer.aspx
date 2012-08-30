@@ -248,7 +248,9 @@
 	<asp:GridView ID="DocketItemsGridView" runat="server" AutoGenerateColumns="False" EnableViewState="false">
 		<Columns>			
 			<asp:BoundField DataField="product_code" HeaderText="Product Code"/>
-			<asp:BoundField DataField="unit_cost" HeaderText="Unit Cost" DataFormatString="{0:C0}" />	
+			<asp:BoundField DataField="cost_ex" HeaderText="Cost Ex" DataFormatString="{0:C0}" />	
+               <asp:BoundField DataField="sale_ex" HeaderText="Cost Ex" DataFormatString="{0:C0}" />	
+               <asp:BoundField DataField="sale_inc" HeaderText="Sale Inc" DataFormatString="{0:C0}" />	
 			<asp:BoundField DataField="total_count" HeaderText="# of Sales"  />
 			<asp:BoundField DataField="total_revenue" HeaderText="Total Revenue" DataFormatString="{0:C0}" />		
 			<asp:BoundField DataField="description" HeaderText="Description"/>
