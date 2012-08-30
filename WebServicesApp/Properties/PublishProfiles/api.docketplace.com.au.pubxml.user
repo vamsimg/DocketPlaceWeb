@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>live docketplace.com.au</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAS+gD/4hPM0egQcUod16w5QAAAAACAAAAAAAQZgAAAAEAACAAAACMgZN88bZPGvcha8JMteKfWFn358z2wMiNxdcYcRuXhwAAAAAOgAAAAAIAACAAAACzEGrRXQYlxJzDITHRCxwTrO61dROKw7P92c7OUh3bR0AAAAB1ka6CstGrn3r7rVGprXbnmOJhq+cq9sL/BT4Rc3NESXknKuJWu45lessnVLKPfyWWyR6qV5Iot3TRmLdUlwvnQAAAADNZOZseGDXTuvz507WhL0FwNvOOLZTkgGVOSxdkjnTzl6y54ZKFMmNJJ4bpR6R/UIO5SA71rD/xaqlCWGOzsas=</EncryptedPassword>
+  </PropertyGroup>
+</Project>
