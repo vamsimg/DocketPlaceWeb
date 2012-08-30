@@ -43,7 +43,7 @@ namespace DocketPlace.Business
 			}
 		}
 		
-		public static Member GetMemberByStoreAndLocalID(string localCustomerID, int store_id)
+		public static Member GetMemberByStoreAndLocalID(int localCustomerID, int store_id)
 		{
 			SqlParameter p = new SqlParameter("@local_customer_id", localCustomerID);
 			SqlParameter q = new SqlParameter("@store_id", store_id);
@@ -66,7 +66,7 @@ namespace DocketPlace.Business
 			}
 		}
 
-		public static EntityList<Member> GetMembersByCompanyAndLocalID(string localCustomerID, int companyID)
+		public static EntityList<Member> GetMembersByCompanyAndLocalID(int localCustomerID, int companyID)
 		{
 			SqlParameter p = new SqlParameter("@local_customer_id", localCustomerID);
 			SqlParameter q = new SqlParameter("@company_id", companyID);

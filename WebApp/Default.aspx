@@ -24,12 +24,7 @@
 				<li><a href="/Partners.aspx">Partners</a></li>
                     <li><a href="/ContactUs.aspx">Contact Us</a></li>
 				<li><a href="/Compatibility.aspx">Compatibility</a></li>
-				<li>	<a href="/Login.aspx">Login</a>					
-					<ul>
-						<li><a href="/Login.aspx">Merchant Login</a></li>
-						<li><a href="/CustomerLogin.aspx">Customer Login</a></li>													
-					</ul>
-				</li>
+				<li>	<a href="/Login.aspx">Login</a></li>
                </ul>            
           </asp:Panel>
 

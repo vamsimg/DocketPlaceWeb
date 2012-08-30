@@ -13,24 +13,31 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		live docketplace.com.au|Any CPU = live docketplace.com.au|Any CPU
 		Release|Any CPU = Release|Any CPU
 		staging.docketplace.com.au|Any CPU = staging.docketplace.com.au|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{A666013F-FCAF-47DA-949A-217AFCFEA740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A666013F-FCAF-47DA-949A-217AFCFEA740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A666013F-FCAF-47DA-949A-217AFCFEA740}.live docketplace.com.au|Any CPU.ActiveCfg = live docketplace.com.au|Any CPU
+		{A666013F-FCAF-47DA-949A-217AFCFEA740}.live docketplace.com.au|Any CPU.Build.0 = live docketplace.com.au|Any CPU
 		{A666013F-FCAF-47DA-949A-217AFCFEA740}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A666013F-FCAF-47DA-949A-217AFCFEA740}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A666013F-FCAF-47DA-949A-217AFCFEA740}.staging.docketplace.com.au|Any CPU.ActiveCfg = staging.docketplace.com.au|Any CPU
 		{A666013F-FCAF-47DA-949A-217AFCFEA740}.staging.docketplace.com.au|Any CPU.Build.0 = staging.docketplace.com.au|Any CPU
 		{A796D4E7-1146-4BBD-A47F-B3814B26F973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A796D4E7-1146-4BBD-A47F-B3814B26F973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A796D4E7-1146-4BBD-A47F-B3814B26F973}.live docketplace.com.au|Any CPU.ActiveCfg = live docketplace.com.au|Any CPU
+		{A796D4E7-1146-4BBD-A47F-B3814B26F973}.live docketplace.com.au|Any CPU.Build.0 = live docketplace.com.au|Any CPU
 		{A796D4E7-1146-4BBD-A47F-B3814B26F973}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A796D4E7-1146-4BBD-A47F-B3814B26F973}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A796D4E7-1146-4BBD-A47F-B3814B26F973}.staging.docketplace.com.au|Any CPU.ActiveCfg = staging.docketplace.com.au|Any CPU
 		{A796D4E7-1146-4BBD-A47F-B3814B26F973}.staging.docketplace.com.au|Any CPU.Build.0 = staging.docketplace.com.au|Any CPU
 		{46394D35-9D12-4DB8-A4E5-697F44234B9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{46394D35-9D12-4DB8-A4E5-697F44234B9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46394D35-9D12-4DB8-A4E5-697F44234B9B}.live docketplace.com.au|Any CPU.ActiveCfg = live docketplace.com.au|Any CPU
+		{46394D35-9D12-4DB8-A4E5-697F44234B9B}.live docketplace.com.au|Any CPU.Build.0 = live docketplace.com.au|Any CPU
 		{46394D35-9D12-4DB8-A4E5-697F44234B9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46394D35-9D12-4DB8-A4E5-697F44234B9B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{46394D35-9D12-4DB8-A4E5-697F44234B9B}.staging.docketplace.com.au|Any CPU.ActiveCfg = staging.docketplace.com.au|Any CPU

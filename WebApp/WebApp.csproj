@@ -67,6 +67,23 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'live docketplace.com.au|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\DocketPlace.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=4.1.50731.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -141,10 +158,7 @@
     <Content Include="css\navbar.css" />
     <Content Include="css\print.css" />
     <Content Include="css\tabs.css" />
-    <Content Include="CustomerLogin.aspx" />
     <Content Include="Default.aspx" />
-    <Content Include="EmailDocket.aspx" />
-    <Content Include="EmailDocketSent.aspx" />
     <Content Include="email\AccountCreationEmail.txt" />
     <Content Include="email\AccountErrorEmail.txt" />
     <Content Include="email\AdMatchAccept.txt" />
@@ -247,9 +261,9 @@
     <Content Include="manage\UploadedAds\UpdateUploadedAd.aspx" />
     <Content Include="Partners.aspx" />
     <Content Include="Pricing.aspx" />
-    <Content Include="ResetCustomerPassword.aspx" />
     <Content Include="ResetMerchantPassword.aspx" />
     <Content Include="Print.Master" />
+    <None Include="Properties\PublishProfiles\live docketplace.com.au.pubxml" />
     <None Include="Properties\PublishProfiles\staging.docketplace.com.au.pubxml" />
     <None Include="Properties\PublishProfiles\Release.pubxml" />
     <None Include="Properties\PublishProfiles\Testing.pubxml" />
@@ -314,6 +328,15 @@
     <Content Include="Web.staging.docketplace.com.au.config">
       <DependentUpon>Web.config</DependentUpon>
       <SubType>Designer</SubType>
+      <IsTransformFile>True</IsTransformFile>
+    </Content>
+    <Content Include="Web.Home.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
+    </Content>
+    <Content Include="Web.live docketplace.com.au.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <IsTransformFile>True</IsTransformFile>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -379,33 +402,12 @@
     <Compile Include="cronjobs\DailyJob.aspx.designer.cs">
       <DependentUpon>DailyJob.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CustomerLogin.aspx.cs">
-      <DependentUpon>CustomerLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CustomerLogin.aspx.designer.cs">
-      <DependentUpon>CustomerLogin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EmailDocket.aspx.cs">
-      <DependentUpon>EmailDocket.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EmailDocket.aspx.designer.cs">
-      <DependentUpon>EmailDocket.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="EmailDocketSent.aspx.cs">
-      <DependentUpon>EmailDocketSent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EmailDocketSent.aspx.designer.cs">
-      <DependentUpon>EmailDocketSent.aspx</DependentUpon>
     </Compile>
     <Compile Include="FAQ.aspx.cs">
       <DependentUpon>FAQ.aspx</DependentUpon>
@@ -845,13 +847,6 @@
       <DependentUpon>Print.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResetCustomerPassword.aspx.cs">
-      <DependentUpon>ResetCustomerPassword.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ResetCustomerPassword.aspx.designer.cs">
-      <DependentUpon>ResetCustomerPassword.aspx</DependentUpon>
-    </Compile>
     <Compile Include="ResetMerchantPassword.aspx.cs">
       <DependentUpon>ResetMerchantPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

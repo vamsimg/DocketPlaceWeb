@@ -49,25 +49,23 @@ namespace WebApp.AppCode
                          newDocket.Save();
                          newDocket.Refresh();
 
-                         if (currentStore.company_.are_lineitems_stored)
+                         
+                         foreach (AdProvider.LocalDocketItem item in localDocket.itemList)
                          {
-                              foreach (AdProvider.LocalDocketItem item in localDocket.itemList)
-                              {
-                                   DocketItem newItem = newDocket.CreateDocketItem();
-                                   newItem.product_code = item.product_code;
-                                   newItem.product_barcode = item.product_barcode;
-                                   newItem.department = item.department;
-                                   newItem.category = item.category;
-                                   newItem.description = item.description;                                  
+                              DocketItem newItem = newDocket.CreateDocketItem();
+                              newItem.product_code = item.product_code;
+                              newItem.product_barcode = item.product_barcode;
+                              newItem.department = item.department;
+                              newItem.category = item.category;
+                              newItem.description = item.description;                                  
                                    
-                                   newItem.cost_ex = item.cost_ex;
-                                   newItem.sale_ex = item.sale_ex;
-                                   newItem.sale_inc = item.sale_inc;
-                                   newItem.quantity = item.quantity;
-                                   newItem.Save();
-                              }
+                              newItem.cost_ex = item.cost_ex;
+                              newItem.sale_ex = item.sale_ex;
+                              newItem.sale_inc = item.sale_inc;
+                              newItem.quantity = item.quantity;
+                              newItem.Save();
                          }
-
+                        
                          if (localDocket.localCustomer != null)
                          {
                               Member memberRecord = ProcessCustomerInfo(localDocket.localCustomer, currentStore);
@@ -91,7 +89,7 @@ namespace WebApp.AppCode
 
                }
                catch(Exception ex)
-               {
+               {                    
                     throw ex;
                }
 			
@@ -287,7 +285,7 @@ namespace WebApp.AppCode
 		/// <returns></returns>
 		private static Member ProcessCustomerInfo(AdProvider.LocalCustomer localCustomer, Store currentStore)
 		{
-			Member existingMember = Member.GetMemberByStoreAndLocalID(localCustomer.customer_id.ToString(), currentStore.store_id);
+			Member existingMember = Member.GetMemberByStoreAndLocalID(localCustomer.customer_id, currentStore.store_id);
 
 			if (existingMember == null)
 			{
@@ -336,7 +334,7 @@ namespace WebApp.AppCode
 			}
 			else
 			{
-                    //Barcode has changed.
+                    //If Barcode has changed.
                     if (existingMember.local_barcode_id != localCustomer.barcode_id)
                     {
                          existingMember.local_barcode_id = localCustomer.barcode_id;
@@ -354,36 +352,28 @@ namespace WebApp.AppCode
 
 			Member existingMember = existingMembers.Find(element => element.company_id == currentStore.company_id);
 
-			if (existingMember != null)
-			{
-				//If the customer has used the QR code tool to email themselves a receipt and the store has subsequently added them to their local database then we need to update their local customer ID.
-				if (existingMember.local_customer_id == "None")
-				{
-					existingMember.local_customer_id = localCustomer.customer_id;
-					existingMember.Save();
-				}
-				return existingMember;
-			}
-			else
-			{
-				Member newMember = Member.CreateMemberBycustomer_(existingCustomer);
-				newMember.company_id = currentStore.company_id;
-				newMember.store_id = currentStore.store_id;
+               if (existingMember != null)
+               {
+                    return existingMember;
+               }
+               else
+               {
+                    Member newMember = Member.CreateMemberBycustomer_(existingCustomer);
+                    newMember.company_id = currentStore.company_id;
+                    newMember.store_id = currentStore.store_id;
 
-				//The customer has scanned a QR code for an email receipt. They aren't in the local RM database.
-				if (localCustomer != null)
-				{
-					newMember.local_customer_id = localCustomer.customer_id;
-					newMember.local_barcode_id = localCustomer.barcode_id;
-					newMember.grade = localCustomer.grade;
-				}
-				newMember.creation_datetime = DateTime.Now;
-				newMember.reward_points = 0;
-				newMember.frequency = 0;
-				newMember.total_revenue = 0;
-				newMember.Save();
-				return newMember;
-			}
+                    
+                    newMember.local_customer_id = localCustomer.customer_id;
+                    newMember.local_barcode_id = localCustomer.barcode_id;
+                    newMember.grade = localCustomer.grade;
+                    
+                    newMember.creation_datetime = DateTime.Now;
+                    newMember.reward_points = 0;
+                    newMember.frequency = 0;
+                    newMember.total_revenue = 0;
+                    newMember.Save();
+                    return newMember;
+               }               
 		}
 
 		/// <summary>
@@ -395,14 +385,19 @@ namespace WebApp.AppCode
 		/// <returns></returns>	
 		public static string UpdateCustomerInfo(AdProvider.LocalCustomer localCustomer, Store currentStore)
 		{
-			Member existingMember = Member.GetMemberByStoreAndLocalID(localCustomer.customer_id.ToString(), currentStore.store_id);
+			Member existingMember = Member.GetMemberByStoreAndLocalID(localCustomer.customer_id, currentStore.store_id);
 
 			try
 			{
 				//Couldnt't find a member , so go looking in the database to see if there's an existing customer record for this 
 				//guy. If there is then created a member record, if there isnt then create a member record.
 				//If the customer is a member of another company then don't update details and overwrite.
-				if (existingMember == null)
+				if (existingMember != null)
+                    {
+                         string details = UpdateCustomerDetails(localCustomer, existingMember.customer_);
+					return "Customer number: " + localCustomer.customer_id + details + " updated.";
+                    }
+                    else
 				{
 					string sanitisedEmail = localCustomer.email.ToLower().Trim();
 					string sanitisedMobile = localCustomer.mobile.Trim().Replace(" ", "");
@@ -437,24 +432,14 @@ namespace WebApp.AppCode
 
 
 						Member newMember = CreateMemberRecord(currentStore, newCustomer, localCustomer);
-
-						if (newCustomer.email != "")
-						{
-							//Send new account email.						
-							//EmailHelper.CustomerAccountCreationEmail(newCustomer.email, newCustomer.full_name, newPassword, currentStore.company_.name);
-						}
+						
 						return "Customer number: " + localCustomer.customer_id + " created.";
 					}
 					else
 					{
 						return MakeActualCustomerUpdate(localCustomer, currentStore, existingCustomer);
 					}						
-				}
-				else
-				{
-					string details = UpdateCustomerDetails(localCustomer, existingMember.customer_);
-					return "Customer number: " + localCustomer.customer_id + details + " updated.";
-				}
+				}				
 			}
 			catch (Exception ex)
 			{
@@ -482,15 +467,14 @@ namespace WebApp.AppCode
 		private static string UpdateCustomerDetails(AdProvider.LocalCustomer localCustomer, Customer existingCustomer)
 		{
 			string sectionsUpdated = "";
-			if (existingCustomer.title != localCustomer.title)
-			//if (String.IsNullOrEmpty(existingCustomer.title) && !String.IsNullOrEmpty(localCustomer.title))
+			if (existingCustomer.title != localCustomer.title)			
 			{
 				existingCustomer.title = localCustomer.title;
 				sectionsUpdated += " Title";
 			}
 
-			if (existingCustomer.first_name != localCustomer.last_name)
-			{
+			if (existingCustomer.first_name != localCustomer.first_name)
+			{                    
 				existingCustomer.first_name = localCustomer.first_name;
 				sectionsUpdated += " First Name";
 			}

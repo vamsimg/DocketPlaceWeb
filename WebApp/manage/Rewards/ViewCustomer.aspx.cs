@@ -162,7 +162,7 @@ namespace WebApp.manage.Rewards
 		private void HydrateCustomer()
 		{
 			DocketPlaceCustomerIDLabel.Text = currentMember.customer_id.ToString();
-			LocalCustomerIDLabel.Text = currentMember.local_customer_id;
+			LocalCustomerIDLabel.Text = currentMember.local_customer_id.ToString();
 			BarcodeTextBox.Text = currentMember.local_barcode_id;
 			GradeLabel.Text = currentMember.grade;
 			TitleLabel.Text = currentCustomer.title;

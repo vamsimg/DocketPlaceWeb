@@ -11,36 +11,7 @@ namespace WebApp.AppCode
 	/// Summary description for QRHelper
 	/// </summary>
 	public static class QRHelper
-	{
-
-		/// <summary>
-		/// Base64 encoded image of the QR Code for the docket
-		/// </summary>
-		/// <param name="newDocket"></param>
-		/// <returns></returns>
-		public static string GenerateQRDocket(Docket newDocket)
-		{
-			try
-			{
-				string url = "http://www.docketplace.com.au/EmailDocket.aspx?docket_id=" + newDocket.docket_id.ToString() + "&docket_code=" + newDocket.code;
-
-
-				string QRCodeGeneratorUrl = "https://chart.googleapis.com/chart?chs=200x200&cht=qr&chl=" + HttpUtility.UrlEncode(url);
-
-				// Download web image whihc is a PNG
-				System.Drawing.Image qrcode = null;
-				qrcode = DownloadImage(QRCodeGeneratorUrl);
-
-
-				return BusinessHelper.EncodeAd(qrcode);
-			}
-			catch (Exception ex)
-			{
-				LogHelper.WriteError("Docketid:" + newDocket.docket_id.ToString() + "Code:" + newDocket.code + ex.ToString());
-			}
-			return null;
-		}
-
+	{          		
 		/// <summary>
 		/// Base64 encoded image of the QR Code for the voucher
 		/// </summary>

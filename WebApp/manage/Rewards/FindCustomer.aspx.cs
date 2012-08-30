@@ -137,7 +137,7 @@ namespace WebApp.manage.Rewards
 				EntityList<Customer> foundCustomers = new EntityList<Customer>();
 				if (IDgiven)
 				{
-					EntityList<Member> foundMembers = Member.GetMembersByCompanyAndLocalID(searchTerm, currentCompany.company_id);
+					EntityList<Member> foundMembers = Member.GetMembersByCompanyAndLocalID(Convert.ToInt32(searchTerm), currentCompany.company_id);
 
 					foreach (Member item in foundMembers)
 					{

@@ -76,7 +76,7 @@ namespace WebApp
 
 		public class LocalCustomer
 		{
-			public string customer_id;
+			public int customer_id;
 			public string mobile;
 			public string phone;
 			public string email;
@@ -178,13 +178,7 @@ namespace WebApp
 						}
 						else
 						{
-							if (current_store.company_.enableQRCodes == true)
-							{
-								AdImage QRImage = createNewAdImage(QRHelper.GenerateQRDocket(newResults.newDocket), "To get an email version of this receipt\r\nscan the image above with  QR Scanner\r\nfor iPhone or Google Goggles for Android\r\n\r\n\r\n");
-								new_response.adList.Add(QRImage);
-							}
-
-							RewardSetting currentSetting = current_store.company_.RewardSettingsBycompany_[0];
+                                   RewardSetting currentSetting = current_store.company_.RewardSettingsBycompany_[0];
 							int possiblePoints = Convert.ToInt32(Math.Ceiling(new_request.currentDocket.total * currentSetting.points_per_dollar));
 
 							string possibleRewards = "This receipt could have been worth \n{0} points.\n\n";
@@ -239,14 +233,6 @@ namespace WebApp
 						Docket newDocket = null;
 
 						newDocket = RewardsHelper.InsertNonRewardsDocket(new_request.currentDocket, current_store, true);
-
-						//Generate a QR code for an email receipt if theres no customer attached, if a customer is attached then they should have an email address as part of their record.
-						if (current_store.company_.enableQRCodes == true && newDocket.customer_ == null)
-						{
-							AdImage QRImage = createNewAdImage(QRHelper.GenerateQRDocket(newDocket), "To get an email version of this receipt\r\nscan the image above with  QR Scanner\r\nfor iPhone or Google Goggles for Android\r\n\r\n\r\n");
-							new_response.adList.Add(QRImage);
-						}
-
 
 						new_response = GetNewAd(new_request, new_response, current_store, newDocket);
 

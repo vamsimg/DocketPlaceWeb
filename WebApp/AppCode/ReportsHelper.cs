@@ -168,12 +168,12 @@ namespace WebApp.AppCode
 
 			// create a command object
 
-			string selectCommand = @"SELECT  product_code, product_barcode, description, unit_cost, COUNT(*) as total_count, (unit_cost * COUNT(*)) as total_revenue
+               string selectCommand = @"product_code, product_barcode, description, department, category, cost_ex, sale_ex,sale_inc, COUNT(*) as total_count, (sale_ex * COUNT(*)) as total_revenue
 							FROM Dockets as d
 							INNER JOIN DocketItems as i
 							on d.docket_id = i.docket_id
 							where store_id = @store_id and creation_datetime >= @start_date AND creation_datetime < @end_date
-							GROUP BY product_code, product_barcode, description, unit_cost
+							GROUP BY product_code, product_barcode, description, cost_ex, sale_ex, sale_inc, department, category
 							order by total_count desc";
 
 			SqlCommand command = new SqlCommand(selectCommand, connection);
@@ -315,12 +315,12 @@ namespace WebApp.AppCode
 			// create a command object
                //TODO Check query accuracy
 
-               string selectCommand = @"SELECT  product_code, description, unit_cost, SUM(quantity) as total_count, SUM(unit_cost * quantity) as total_revenue
+               string selectCommand = @"SELECT  product_code,description, department, category, cost_ex, sale_ex,sale_inc, COUNT(*) as total_count, (sale_ex * COUNT(*)) as total_revenue
 							FROM Dockets as d
 							INNER JOIN DocketItems as i
 							on d.docket_id = i.docket_id
 							where store_id = @store_id and d.customer_id = @customer_id
-							GROUP BY product_code, description, unit_cost
+							GROUP BY product_code, description, cost_ex, sale_ex, sale_inc, department, category
 							order by total_count desc";
 
 
