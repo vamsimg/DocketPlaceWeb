@@ -68,6 +68,10 @@
 				<asp:ListItem Value="10">10</asp:ListItem>
 				<asp:ListItem Value="15">15</asp:ListItem>
 				<asp:ListItem Value="20">20</asp:ListItem>
+                    <asp:ListItem Value="21">21</asp:ListItem>
+                    <asp:ListItem Value="22">22</asp:ListItem>
+                    <asp:ListItem Value="23">23</asp:ListItem>
+                    <asp:ListItem Value="24">24</asp:ListItem>
 				<asp:ListItem Value="25">25</asp:ListItem>
 				<asp:ListItem Value="30">30</asp:ListItem>
 			</asp:DropDownList>

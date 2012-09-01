@@ -219,9 +219,9 @@ namespace WebServicesApp.AppCode
 
                newVoucher.creation_datetime = DateTime.Now;
 
-               DateTime localDateTime = Helpers.ConvertServerDateTimetoLocal(DateTime.Now);
+               DateTime localDateTime = DateTime.Now;
 
-               DateTime expiryDateTime = new DateTime(localDateTime.Year, localDateTime.Month, localDateTime.Day).AddDays(currentSettings.expiry_days + 2);
+               DateTime expiryDateTime = new DateTime(localDateTime.Year, localDateTime.Month, localDateTime.Day).AddDays(currentSettings.expiry_days);
 
                newVoucher.expiry_datetime = expiryDateTime;
 

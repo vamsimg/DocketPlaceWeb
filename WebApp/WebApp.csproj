@@ -327,10 +327,6 @@
       <SubType>Designer</SubType>
       <IsTransformFile>True</IsTransformFile>
     </Content>
-    <Content Include="Web.Home.config">
-      <DependentUpon>Web.config</DependentUpon>
-      <IsTransformFile>True</IsTransformFile>
-    </Content>
     <Content Include="Web.live docketplace.com.au.config">
       <DependentUpon>Web.config</DependentUpon>
       <IsTransformFile>True</IsTransformFile>
