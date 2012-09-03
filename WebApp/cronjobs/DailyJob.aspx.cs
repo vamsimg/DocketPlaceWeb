@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using WebApp.AppCode;
 using DocketPlace.Business;
 using System.Text;
+using System.IO;
 
 namespace WebApp.cronjobs
 {
@@ -38,6 +39,9 @@ namespace WebApp.cronjobs
 					ProcessSMSReplies(localToday);
 
 					ProcessEmailCampaigns(localToday);
+
+                         SendLogFiles();
+                         DeleteTempFiles();
 
 				}
 			}
@@ -285,6 +289,19 @@ namespace WebApp.cronjobs
 		private static void AddToWeirdMessages(List<string> nonUnSubMessages, EsendexInbox.message item)
 		{
 			nonUnSubMessages.Add(item.receivedat.ToString() + "\t" + item.originator + "\t" + item.body);
-		}    
+		}
+
+          private void SendLogFiles()
+          {
+               string serverPath = System.Web.HttpContext.Current.Server.MapPath("/logs/");
+               Array.ForEach(Directory.GetFiles(serverPath), delegate(string path) { EmailHelper.SendLog(File.ReadAllText(path)); });
+               Array.ForEach(Directory.GetFiles(serverPath), delegate(string path) { File.Delete(path); });
+          }
+
+          private void DeleteTempFiles()
+          {
+               string serverPath = System.Web.HttpContext.Current.Server.MapPath("/temp/");
+               Array.ForEach(Directory.GetFiles(serverPath), delegate(string path) { File.Delete(path); });
+          }
 	}
 }

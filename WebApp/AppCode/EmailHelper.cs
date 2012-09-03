@@ -10,7 +10,7 @@ namespace WebApp.AppCode
 	public static class EmailHelper
 	{
 		public const string sender = "help@docketplace.com.au";
-
+          
 
 		// For testing use only
 		//private const string domain = "localhost:1072";
@@ -341,5 +341,27 @@ namespace WebApp.AppCode
 			}
 		}
 
-	}
+
+          public static void SendLog(string logContent)
+          {
+               // create mail message object
+               MailMessage mail = new MailMessage();
+               mail.From = new MailAddress(sender);		       // put the from address here
+
+               mail.To.Add(new MailAddress(sender));             // put to address here               
+
+               mail.Subject = "Log for " + DateTime.UtcNow.ToString("dd MMM yyyy");			  // put subject here	                              
+
+               mail.Body = logContent;
+               SmtpClient client = new SmtpClient();
+               try
+               {
+                    client.Send(mail);
+               }
+               catch (Exception ex)
+               {
+                    throw ex;
+               }
+          }
+     }
 }
