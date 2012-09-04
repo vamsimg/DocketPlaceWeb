@@ -87,15 +87,6 @@ namespace WebApp.manage.Companies
 			{
 				ReatilerFieldLabel.Text = "Advertiser";
 			}
-
-			if (currentCompany.are_receipts_stored)
-			{
-				StoreReceiptsFieldLabel.Text = "Yes";
-			}
-			else
-			{
-				StoreReceiptsFieldLabel.Text = "No";
-			}
 		}
 
 	}

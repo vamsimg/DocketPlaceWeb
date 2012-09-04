@@ -400,33 +400,6 @@ namespace WebApp.manage.Companies {
         protected global::System.Web.UI.WebControls.RadioButtonList RetailerRadioButtonList;
         
         /// <summary>
-        /// StoreReceiptsLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label StoreReceiptsLabel;
-        
-        /// <summary>
-        /// StoreReceiptsRadioButtonList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList StoreReceiptsRadioButtonList;
-        
-        /// <summary>
-        /// QRCodeRadioButtonList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButtonList QRCodeRadioButtonList;
-        
-        /// <summary>
         /// UpdateCompanyButton control.
         /// </summary>
         /// <remarks>

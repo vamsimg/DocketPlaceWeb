@@ -77,11 +77,7 @@
 		<asp:Label ID="RetailerLabel" runat="server" Text="Are you an advertiser or retailer ?" CssClass="leftLabel" ></asp:Label>
 			<asp:Label ID="ReatilerFieldLabel" runat="server" CssClass="textField"></asp:Label>
 			
-		<div class="brclear"></div>  
-
-		<asp:Label ID="StoreReceiptsLabel" runat="server" Text="Can we store the data from your receipts ?" CssClass="leftLabel" ></asp:Label>
-			<asp:Label ID="StoreReceiptsFieldLabel" runat="server" CssClass="textField"></asp:Label>
-		<div class="brclear"></div>
+		<div class="brclear"></div>  		
 
 		<asp:HyperLink ID="EditCompanyHyperLink" runat="server" NavigateUrl="/manage/Companies/UpdateCompany.aspx">Update Company</asp:HyperLink>
 

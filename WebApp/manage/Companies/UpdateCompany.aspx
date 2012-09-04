@@ -113,22 +113,6 @@
 		</asp:RadioButtonList>
 		
 	<div class="brclear"></div>  
-
-	<asp:Label ID="StoreReceiptsLabel" runat="server" Text="Can we store the data from your receipts ?" CssClass="leftLabel" AssociatedControlID="StoreReceiptsRadioButtonList"></asp:Label>
-		<asp:RadioButtonList ID="StoreReceiptsRadioButtonList"  runat="server">
-			<asp:ListItem Value="True" Selected ="True" >Yes</asp:ListItem>
-			<asp:ListItem Value="False" >No</asp:ListItem>
-		</asp:RadioButtonList>
-		
-	<div class="brclear"></div>  
-
-	<span class="leftLabel">Enable QR Codes for eReceipts?</span>
-		<asp:RadioButtonList ID="QRCodeRadioButtonList"  runat="server">
-			<asp:ListItem Value="True" Selected ="True" >Yes</asp:ListItem>
-			<asp:ListItem Value="False" >No</asp:ListItem>
-		</asp:RadioButtonList>
-		
-	<div class="brclear"></div>  
 	
 	<asp:Button ID="UpdateCompanyButton" runat="server" Text="Update Company" onclick="UpdateCompanyButton_Click"/>
 	

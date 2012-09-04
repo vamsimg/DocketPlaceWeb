@@ -54,8 +54,8 @@ namespace WebApp.manage.Companies
 
 			RetailerRadioButtonList.SelectedValue = current_company.is_retailer.ToString();
 
-			StoreReceiptsRadioButtonList.SelectedValue = current_company.are_receipts_stored.ToString();
-			QRCodeRadioButtonList.SelectedValue = current_company.enableQRCodes.ToString();
+			
+			
 
 			MailchimpTextBox.Text = current_company.mailchimp_apikey;
 			MCMasterListLabel.Text = current_company.mc_masterlist_id;
@@ -112,9 +112,6 @@ namespace WebApp.manage.Companies
 					current_company.website = WebsiteTextBox.Text;
 
 					current_company.is_retailer = Convert.ToBoolean(RetailerRadioButtonList.SelectedValue);
-
-					current_company.are_receipts_stored = Convert.ToBoolean(StoreReceiptsRadioButtonList.SelectedValue);
-					current_company.enableQRCodes = Convert.ToBoolean(QRCodeRadioButtonList.SelectedValue);
 
 					current_company.Save();
 					UpdateCompanyErrorLabel.Text = "Updated details successfully.";
