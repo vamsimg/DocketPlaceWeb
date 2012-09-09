@@ -234,22 +234,23 @@
     <Content Include="manage\Customers\UpdateDetails.aspx" />
     <Content Include="manage\Customers\ViewReceipt.aspx" />
     <Content Include="manage\Dashboard.aspx" />
+    <Content Include="manage\Reports\ReportsHome.aspx" />
     <Content Include="manage\Rewards\AllCustomers.aspx" />
     <Content Include="manage\Rewards\ConfigureRewards.aspx" />
     <Content Include="manage\Rewards\CreateNewCustomerList.aspx" />
     <Content Include="manage\Rewards\CustomerLists.aspx" />
-    <Content Include="manage\Rewards\DailyReports.aspx" />
+    <Content Include="manage\Reports\DailyReports.aspx" />
     <Content Include="manage\Rewards\FindCustomer.aspx" />
-    <Content Include="manage\Rewards\MonthlyReport.aspx" />
+    <Content Include="manage\Reports\MonthlyReport.aspx" />
     <Content Include="manage\Rewards\RewardsHome.aspx" />
     <Content Include="manage\Rewards\Triggers.aspx" />
     <Content Include="manage\Rewards\ViewCustomer.aspx" />
     <Content Include="manage\Rewards\ViewCustomerList.aspx" />
     <Content Include="manage\Rewards\ViewReceipt.aspx" />
     <Content Include="manage\Rewards\ViewTransactions.aspx" />
-    <Content Include="manage\Rewards\ViewVouchers.aspx" />
-    <Content Include="manage\Rewards\WeeklyReport.aspx" />
-    <Content Include="manage\Rewards\YearlyReport.aspx" />
+    <Content Include="manage\Reports\ViewVouchers.aspx" />
+    <Content Include="manage\Reports\WeeklyReport.aspx" />
+    <Content Include="manage\Reports\YearlyReport.aspx" />
     <Content Include="manage\SelectCompany.aspx" />
     <Content Include="manage\Stores\CreateNewStore.aspx" />
     <Content Include="manage\Stores\Stores.aspx" />
@@ -368,7 +369,6 @@
     <Compile Include="AppCode\QRHelper.cs" />
     <Compile Include="AppCode\ReportsHelper.cs" />
     <Compile Include="AppCode\SMSHelper.cs" />
-    <Compile Include="AppCode\ZipHelper.cs" />
     <Compile Include="Compatibility.aspx.cs">
       <DependentUpon>Compatibility.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -645,6 +645,13 @@
     <Compile Include="manage\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="manage\Reports\ReportsHome.aspx.cs">
+      <DependentUpon>ReportsHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\Reports\ReportsHome.aspx.designer.cs">
+      <DependentUpon>ReportsHome.aspx</DependentUpon>
+    </Compile>
     <Compile Include="manage\Rewards\AllCustomers.aspx.cs">
       <DependentUpon>AllCustomers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -673,11 +680,11 @@
     <Compile Include="manage\Rewards\CustomerLists.aspx.designer.cs">
       <DependentUpon>CustomerLists.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manage\Rewards\DailyReports.aspx.cs">
+    <Compile Include="manage\Reports\DailyReports.aspx.cs">
       <DependentUpon>DailyReports.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manage\Rewards\DailyReports.aspx.designer.cs">
+    <Compile Include="manage\Reports\DailyReports.aspx.designer.cs">
       <DependentUpon>DailyReports.aspx</DependentUpon>
     </Compile>
     <Compile Include="manage\Rewards\FindCustomer.aspx.cs">
@@ -687,11 +694,11 @@
     <Compile Include="manage\Rewards\FindCustomer.aspx.designer.cs">
       <DependentUpon>FindCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manage\Rewards\MonthlyReport.aspx.cs">
+    <Compile Include="manage\Reports\MonthlyReport.aspx.cs">
       <DependentUpon>MonthlyReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manage\Rewards\MonthlyReport.aspx.designer.cs">
+    <Compile Include="manage\Reports\MonthlyReport.aspx.designer.cs">
       <DependentUpon>MonthlyReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="manage\Rewards\RewardsHome.aspx.cs">
@@ -736,25 +743,25 @@
     <Compile Include="manage\Rewards\ViewTransactions.aspx.designer.cs">
       <DependentUpon>ViewTransactions.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manage\Rewards\ViewVouchers.aspx.cs">
+    <Compile Include="manage\Reports\ViewVouchers.aspx.cs">
       <DependentUpon>ViewVouchers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manage\Rewards\ViewVouchers.aspx.designer.cs">
+    <Compile Include="manage\Reports\ViewVouchers.aspx.designer.cs">
       <DependentUpon>ViewVouchers.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manage\Rewards\WeeklyReport.aspx.cs">
+    <Compile Include="manage\Reports\WeeklyReport.aspx.cs">
       <DependentUpon>WeeklyReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manage\Rewards\WeeklyReport.aspx.designer.cs">
+    <Compile Include="manage\Reports\WeeklyReport.aspx.designer.cs">
       <DependentUpon>WeeklyReport.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manage\Rewards\YearlyReport.aspx.cs">
+    <Compile Include="manage\Reports\YearlyReport.aspx.cs">
       <DependentUpon>YearlyReport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="manage\Rewards\YearlyReport.aspx.designer.cs">
+    <Compile Include="manage\Reports\YearlyReport.aspx.designer.cs">
       <DependentUpon>YearlyReport.aspx</DependentUpon>
     </Compile>
     <Compile Include="manage\SelectCompany.aspx.cs">

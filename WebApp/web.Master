@@ -19,8 +19,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <script src="/scripts/jquery-1.7.1.js" type="text/javascript"></script>	
-    
+  
     <div id="contentholder">
 	
 		<div id="header"> 
@@ -66,8 +65,9 @@
 						<a href="/manage/SelectCompany.aspx">My Company</a>
 						<ul>
 							<li><a href="/manage/Dashboard.aspx">Dashboard</a></li>
-							<li><a href="/manage/Rewards/RewardsHome.aspx">Rewards</a></li>
+							<li><a href="/manage/Rewards/RewardsHome.aspx">Customers</a></li>
 							<li><a href="/manage/Campaigns/Campaigns.aspx">Campaigns</a></li>
+                                   <li><a href="/manage/Reports/ReportsHome.aspx">Reports</a></li>
 							<li><a href="/manage/Stores/Stores.aspx">Stores</a></li>
 							<li><a href="/manage/Admins/Admins.aspx">Admins</a></li>
 							<li><a href="/manage/UploadedAds/AdLibrary.aspx">Ad Library</a></li>

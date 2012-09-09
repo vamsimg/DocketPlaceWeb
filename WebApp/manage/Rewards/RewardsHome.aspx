@@ -29,27 +29,6 @@
 
 	<br />
 	<br />
-
-	<a href ="DailyReports.aspx">Daily Reports</a>
-
-	<br />
-	<br />
-	
-	<a href ="WeeklyReport.aspx">Weekly Reports</a>
-
-	<br />
-	<br />
-
-	<a href ="MonthlyReport.aspx">Monthly Reports</a>
-
-	<br />
-	<br />
-
-	<a href ="YearlyReport.aspx">Yearly Reports</a>
-
-	<br />
-	<br />
-
 	
 	<asp:Panel ID="EnableRewardsPanel" runat="server" Visible="false" Enabled="false">
 		

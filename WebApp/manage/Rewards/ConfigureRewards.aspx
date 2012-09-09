@@ -8,6 +8,7 @@
 	
 	<span class="leftLabel">Points Per Dollar: </span>
 		<asp:DropDownList ID="PPDDropDownList" runat="server">
+               <asp:ListItem Value="0">0</asp:ListItem>
 			<asp:ListItem Value="1">1</asp:ListItem>
 			<asp:ListItem Value="2">2</asp:ListItem>
 			<asp:ListItem Value="3">3</asp:ListItem>
@@ -34,6 +35,7 @@
 		<span class="leftLabel">Points Threshold: </span>
 			<asp:DropDownList ID="PointsThresholdDropDownList" runat="server">
 				<asp:ListItem Value="100">100</asp:ListItem>
+                    <asp:ListItem Value="100">150</asp:ListItem>
 				<asp:ListItem Value="200">200</asp:ListItem>
 				<asp:ListItem Value="300">300</asp:ListItem>
                     <asp:ListItem Value="400">400</asp:ListItem>

@@ -97,9 +97,14 @@ namespace WebApp.manage.Rewards
 
 		private string CalculateCostPerCustomer(int pointsPerDollar, int pointsThreshold, Decimal voucherAmount)
 		{
-			Decimal spend = pointsThreshold / pointsPerDollar;
-			Decimal yield = 100 * voucherAmount / spend;
+               Decimal spend = 0;
+               Decimal yield = 0;
 
+               if (pointsPerDollar > 0)
+               {
+                    spend = pointsThreshold / pointsPerDollar;
+                    yield = 100 * voucherAmount / spend;
+               }
 
 			string cost = "Costs you " + yield.ToString("#0") + "%. If a customer spends $" + spend + " they get a $" + voucherAmount.ToString("#0") + " voucher";
 			return cost;

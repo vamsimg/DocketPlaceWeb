@@ -97,6 +97,7 @@ namespace WebApp.manage.Stores
 
 					new_store.state = StateDropDownList.SelectedValue;
 					new_store.postcode = PostcodeTextBox.Text;
+                         new_store.country = "Australia";
 
 					new_store.num_printers = Convert.ToInt32(PrintersDropDownList.SelectedValue);
 

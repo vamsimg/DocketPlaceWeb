@@ -65,7 +65,8 @@ namespace WebApp.admin
 
                               new_company.is_advertiser = true;
                               new_company.is_retailer = is_retailer;
-                              
+                              new_company.smsEnabled = true;
+                              new_company.country = "Australia";
 
                               new_company.creation_datetime = DateTime.Now;
 

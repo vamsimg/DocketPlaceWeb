@@ -94,6 +94,7 @@
     <Content Include="images\SolidConnection.png" />
     <Content Include="images\voucher.png" />
     <Content Include="logs\DeployDummy.txt" />
+    <Content Include="services\UploaderWebService.asmx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
@@ -123,10 +124,15 @@
     </Compile>
     <Compile Include="AppCode\LogHelper.cs" />
     <Compile Include="AppCode\RewardsHelper.cs" />
+    <Compile Include="AppCode\ZipHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="services\UploaderWebService.asmx.cs">
+      <DependentUpon>UploaderWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

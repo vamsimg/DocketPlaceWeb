@@ -10,7 +10,7 @@
 	<h1>Our Customers</h1>
 	
 
-	<asp:Panel ID="MailchimpPanel" runat="server" Enabled="false" Visible="false">
+	<asp:Panel ID="MailchimpPanel" runat="server" Enabled="false" Visible="false" CssClass="simpleBorder" >
 
 		<h3>Mailchimp Sync</h3>	
 
@@ -26,7 +26,11 @@
 	
 	</asp:Panel>
 
-	<asp:Panel ID="SMSPanel" runat="server" Enabled="false" Visible="false">
+
+     <br />
+     <br />
+
+	<asp:Panel ID="SMSPanel" runat="server" Enabled="false" Visible="false" CssClass="simpleBorder" >
 
 		<h3>Send SMS</h3>		
 
@@ -70,6 +74,7 @@
 				
 		</div>
 
+          <div class="brclear"></div>
 	
 	</asp:Panel>
 
