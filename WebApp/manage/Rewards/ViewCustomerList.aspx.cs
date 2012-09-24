@@ -65,7 +65,7 @@ namespace WebApp.manage.Rewards
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
 
-			if (Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany))
+			if (Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany) && currentCompany.smsEnabled)
 			{
 				SMSPanel.Visible = true;
 				SMSPanel.Enabled = true;

@@ -53,7 +53,7 @@ namespace WebApp.manage.Rewards
 				Response.Redirect("/status.aspx?error=notadmin");
 			}
 
-			if (Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany))
+			if (Helpers.IsAuthorizedOwner(loggedInAdmin, currentCompany) && currentCompany.smsEnabled)
 			{
 				SMSPanel.Visible = true;
 				SMSPanel.Enabled = true;
@@ -264,7 +264,7 @@ namespace WebApp.manage.Rewards
 
 				foreach (Member item in currentCompany.MembersBycompany_)
 				{
-					if (!(item.customer_.email_broken || item.no_email))
+					if (!(item.customer_.email_broken || item.no_email || string.IsNullOrEmpty(item.customer_.email)))
 					{
 
 						batch.Add(new List.Merges(item.customer_.email, List.EmailType.Html)

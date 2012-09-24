@@ -5,6 +5,7 @@ using System.Web;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using DocketPlace.Business;
 
 namespace WebApp.AppCode
 {
@@ -168,13 +169,12 @@ namespace WebApp.AppCode
 
 			// create a command object
 
-               string selectCommand = @"SELECT product_code, product_barcode, description, department, category, cost_ex, sale_ex,sale_inc, COUNT(*) as total_count, (sale_ex * COUNT(*)) as total_revenue
-							     FROM Dockets as d
-						          INNER JOIN DocketItems as i
-						          on d.docket_id = i.docket_id
+               string selectCommand = @"SELECT product_code, product_barcode, description, department, category, SUM(quantity) as total_sold, SUM(quantity * sale_inc) as gross_sales , SUM(quantity * (sale_ex - cost_ex)) as net_profit
+                                        FROM Dockets as d
+                                        INNER JOIN DocketItems as i
+                                        on d.docket_id = i.docket_id
 						          where store_id = @store_id and creation_datetime >= @start_date AND creation_datetime < @end_date
-						          GROUP BY product_code, product_barcode, description, cost_ex, sale_ex, sale_inc, department, category
-						          order by total_count desc";
+						          GROUP BY product_code, product_barcode, description, department, category";
 
 			SqlCommand command = new SqlCommand(selectCommand, connection);
 
@@ -195,6 +195,99 @@ namespace WebApp.AppCode
 			ad.Fill(newSet);
 			return newSet.Tables[0];
 		}
+
+          public static DataTable RunDepartmentsSummaryQuery(DateTime startDate, DateTime endDate, int storeID)
+          {
+               // declare the SqlDataReader, which is used in
+               // both the try block and the finally block
+
+               // create a connection object
+               SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString);
+
+               // create a command object
+               //SUM(net_profit)/ SUM(gross_sales) *100 as profit_margin 
+               string selectCommand = @"SELECT department, SUM(total_sold) as items_sold, SUM (gross_sales) as total_sales , SUM(net_profit) as net_profits 
+                                             
+                                        FROM 
+                                        (
+                                             SELECT product_code, product_barcode, description, department, category, SUM(quantity) as total_sold, SUM(quantity * sale_inc) as gross_sales , SUM(quantity * (sale_ex - cost_ex)) as net_profit
+                                             FROM Dockets as d
+                                             INNER JOIN DocketItems as i
+                                             on d.docket_id = i.docket_id
+                                             where store_id = @store_id and creation_datetime >= @start_date AND creation_datetime < @end_date
+
+                                             GROUP BY product_code, product_barcode, description, department, category
+                                        ) as items
+
+                                        group by department 
+                                        order by total_sales desc";
+
+               SqlCommand command = new SqlCommand(selectCommand, connection);
+
+               // 2. define parameters used in command object
+               SqlParameter param1 = new SqlParameter("@start_date", startDate);
+               SqlParameter param2 = new SqlParameter("@end_date", endDate);
+               SqlParameter param3 = new SqlParameter("@store_id", storeID);
+
+               // 3. add new parameter to command object
+               command.Parameters.Add(param1);
+               command.Parameters.Add(param2);
+               command.Parameters.Add(param3);
+
+               SqlDataAdapter ad = new SqlDataAdapter();
+               ad.SelectCommand = command;
+
+               DataSet newSet = new DataSet();
+               ad.Fill(newSet);
+               return newSet.Tables[0];
+          }
+
+          public static DataTable RunDepartmentCategoriesSummaryQuery(DateTime startDate, DateTime endDate, int storeID)
+          {
+               // declare the SqlDataReader, which is used in
+               // both the try block and the finally block
+
+               // create a connection object
+               SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString);
+
+               // create a command object
+               // SUM(net_profit)/ SUM(gross_sales) *100 as profit_margin 
+               string selectCommand = @"SELECT department, category, SUM(total_sold) as items_sold, SUM (gross_sales) as total_sales , SUM(net_profit) as net_profits 
+                                            
+                                        FROM 
+                                        (
+                                             SELECT product_code, product_barcode, description, department, category, SUM(quantity) as total_sold, SUM(quantity * sale_inc) as gross_sales , SUM(quantity * (sale_ex - cost_ex)) as net_profit
+                                             FROM Dockets as d
+                                             INNER JOIN DocketItems as i
+                                             on d.docket_id = i.docket_id
+                                             where store_id = @store_id and creation_datetime >= @start_date AND creation_datetime < @end_date
+
+                                             GROUP BY product_code, product_barcode, description, department, category
+                                        ) as items
+
+                                        group by department,category 
+                                        order by department,category ";
+
+               SqlCommand command = new SqlCommand(selectCommand, connection);
+
+               // 2. define parameters used in command object
+               SqlParameter param1 = new SqlParameter("@start_date", startDate);
+               SqlParameter param2 = new SqlParameter("@end_date", endDate);
+               SqlParameter param3 = new SqlParameter("@store_id", storeID);
+
+               // 3. add new parameter to command object
+               command.Parameters.Add(param1);
+               command.Parameters.Add(param2);
+               command.Parameters.Add(param3);
+
+               SqlDataAdapter ad = new SqlDataAdapter();
+               ad.SelectCommand = command;
+
+               DataSet newSet = new DataSet();
+               ad.Fill(newSet);
+               return newSet.Tables[0];
+          }
+
 
 		public static DataTable RunAnonymousCustomersReportQuery(DateTime startDate, DateTime endDate, int storeID)
 		{
@@ -241,12 +334,12 @@ namespace WebApp.AppCode
 
 			// create a command object
 
-			string selectCommand = @"SELECT  COUNT(*) as frequency, SUM(d.total) as total_revenue, title, first_name,last_name,suburb,mobile, d.customer_id
+			string selectCommand = @"SELECT  COUNT(*) as frequency, SUM(d.total) as total_revenue, title, first_name,last_name,suburb,mobile, email ,d.customer_id
 							     FROM Dockets as d
 							     INNER JOIN Customers as c
 							     on d.customer_id = c.customer_id
 							     where store_id = @store_id and d.creation_datetime >= @start_date AND d.creation_datetime < @end_date
-							     GROUP BY d.customer_id, title, first_name,last_name,suburb,mobile
+							     GROUP BY d.customer_id, title, first_name,last_name,suburb,mobile, email
 							     order by SUM(d.total) desc";
 
 			SqlCommand command = new SqlCommand(selectCommand, connection);
@@ -378,5 +471,60 @@ namespace WebApp.AppCode
 			ad.Fill(newSet);
 			return newSet.Tables[0];
 		}
+
+          public static void RefreshDepartmentsAndCategories(Store currentStore)
+          {
+               
+
+               // create a connection object
+               SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString);
+
+            
+
+               string selectDepCommand = @"SELECT department
+							          FROM Dockets as d
+							          INNER JOIN DocketItems as i
+							          on d.docket_id = i.docket_id
+							          where store_id = @store_id 
+							          GROUP BY department";
+
+              
+               string selectCatCommand = @"SELECT category
+						               FROM Dockets as d
+						               INNER JOIN DocketItems as i
+						               on d.docket_id = i.docket_id
+						               where store_id = @store_id 
+						               GROUP BY category";
+
+
+               currentStore.departments = GetValues(connection, selectDepCommand, currentStore.store_id);
+               currentStore.categories = GetValues(connection, selectCatCommand, currentStore.store_id);
+               currentStore.Save();
+          }
+
+          private static string GetValues(SqlConnection connection, string selectCommand  ,int storeID)
+          {               
+
+               // 2. define parameters used in command object
+               SqlParameter param1 = new SqlParameter("@store_id", storeID);
+               
+               SqlCommand deptSelectCommand = new SqlCommand(selectCommand, connection);
+
+               // 3. add new parameter to command object
+               deptSelectCommand.Parameters.Add(param1);
+               
+               SqlDataAdapter ad = new SqlDataAdapter();
+               ad.SelectCommand = deptSelectCommand;
+
+               DataSet newSet = new DataSet();
+               ad.Fill(newSet);
+               
+               List<string> values = newSet.Tables[0].AsEnumerable().Select(x => x[0].ToString()).ToList();
+               
+               string seperatedValues = string.Join<string>("|", values);
+               return seperatedValues;
+          }
+
+
 	}
 }

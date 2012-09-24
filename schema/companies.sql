@@ -56,7 +56,9 @@ CREATE Table Stores
 	postcode			char(20)			NOT NULL,
 	num_printers		int				NOT NULL,
 	avg_volume			int				NOT NULL,	
-	creation_datetime	datetime		NOT NULL	
+	creation_datetime	datetime		NOT NULL,
+	departments			varchar(max),
+	categories			varchar(max)
 )
 
 

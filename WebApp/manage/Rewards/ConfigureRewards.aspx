@@ -76,6 +76,8 @@
                     <asp:ListItem Value="24">24</asp:ListItem>
 				<asp:ListItem Value="25">25</asp:ListItem>
 				<asp:ListItem Value="30">30</asp:ListItem>
+                    <asp:ListItem Value="60">60</asp:ListItem>
+                    <asp:ListItem Value="90">90</asp:ListItem>
 			</asp:DropDownList>
 		
 		<div class="brclear"></div>		

@@ -44,10 +44,15 @@
                     <li>
 					<a href="/manage/SelectCompany.aspx">My Company</a>
 					<ul>
-						<li><a href="/manage/Campaigns/Campaigns.aspx">Campaigns</a></li>
-						<li><a href="/manage/Stores/Stores.aspx">Stores</a></li>
-						<li><a href="/manage/Admins/Admins.aspx">Admins</a></li>
-						<li><a href="/manage/UploadedAds/AdLibrary.aspx">Ad Library</a></li>
+						<li><a href="/manage/Dashboard.aspx">Dashboard</a></li>
+							<li><a href="/manage/Rewards/RewardsHome.aspx">Customers & Rewards</a></li>
+							<li><a href="/manage/Campaigns/Campaigns.aspx">Campaigns</a></li>
+                                   <li><a href="/manage/Reports/ReportsHome.aspx">Reports</a></li>
+							<li><a href="/manage/Stores/Stores.aspx">Stores</a></li>
+							<li><a href="/manage/Admins/Admins.aspx">Admins</a></li>
+							<li><a href="/manage/UploadedAds/AdLibrary.aspx">Ad Library</a></li>
+							<li><a href="/manage/Billing/CurrentBillingItems.aspx">Billing</a></li>
+							<li><a href="/manage/Companies/ViewCompany.aspx">Details</a></li>
 						<%--<li><a href="/manage/AdMatches/PendingAdMatches.aspx">Pending Matches</a></li>--%>
 					</ul>
 				</li>					

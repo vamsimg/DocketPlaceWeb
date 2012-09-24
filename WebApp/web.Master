@@ -65,7 +65,7 @@
 						<a href="/manage/SelectCompany.aspx">My Company</a>
 						<ul>
 							<li><a href="/manage/Dashboard.aspx">Dashboard</a></li>
-							<li><a href="/manage/Rewards/RewardsHome.aspx">Customers</a></li>
+							<li><a href="/manage/Rewards/RewardsHome.aspx">Customers & Rewards</a></li>
 							<li><a href="/manage/Campaigns/Campaigns.aspx">Campaigns</a></li>
                                    <li><a href="/manage/Reports/ReportsHome.aspx">Reports</a></li>
 							<li><a href="/manage/Stores/Stores.aspx">Stores</a></li>

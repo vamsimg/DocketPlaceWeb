@@ -111,6 +111,7 @@ namespace WebApp.cronjobs
 									{
 										targetCustomer.email_broken = true;
 										targetCustomer.Save();
+                                                  LogHelper.WriteError(bouncedEmail + " bounced");
 									}
 								}
 								catch (Exception ex)

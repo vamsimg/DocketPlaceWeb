@@ -226,13 +226,6 @@
     <Content Include="manage\Companies\MyCompanies.aspx" />
     <Content Include="manage\Companies\UpdateCompany.aspx" />
     <Content Include="manage\Companies\ViewCompany.aspx" />
-    <Content Include="manage\Customers\Default.aspx" />
-    <Content Include="manage\Customers\FAQ.aspx" />
-    <Content Include="manage\Customers\HowItWorks.aspx" />
-    <Content Include="manage\Customers\MyReceipts.aspx" />
-    <Content Include="manage\Customers\MyVouchers.aspx" />
-    <Content Include="manage\Customers\UpdateDetails.aspx" />
-    <Content Include="manage\Customers\ViewReceipt.aspx" />
     <Content Include="manage\Dashboard.aspx" />
     <Content Include="manage\Reports\ReportsHome.aspx" />
     <Content Include="manage\Rewards\AllCustomers.aspx" />
@@ -244,6 +237,7 @@
     <Content Include="manage\Reports\MonthlyReport.aspx" />
     <Content Include="manage\Rewards\RewardsHome.aspx" />
     <Content Include="manage\Rewards\Triggers.aspx" />
+    <Content Include="manage\Rewards\ValidateVoucher.aspx" />
     <Content Include="manage\Rewards\ViewCustomer.aspx" />
     <Content Include="manage\Rewards\ViewCustomerList.aspx" />
     <Content Include="manage\Rewards\ViewReceipt.aspx" />
@@ -582,62 +576,6 @@
     <Compile Include="manage\Companies\ViewCompany.aspx.designer.cs">
       <DependentUpon>ViewCompany.aspx</DependentUpon>
     </Compile>
-    <Compile Include="manage\Customers\Customers.Master.cs">
-      <DependentUpon>Customers.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manage\Customers\Customers.Master.designer.cs">
-      <DependentUpon>Customers.Master</DependentUpon>
-    </Compile>
-    <Compile Include="manage\Customers\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manage\Customers\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manage\Customers\FAQ.aspx.cs">
-      <DependentUpon>FAQ.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manage\Customers\FAQ.aspx.designer.cs">
-      <DependentUpon>FAQ.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manage\Customers\HowItWorks.aspx.cs">
-      <DependentUpon>HowItWorks.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manage\Customers\HowItWorks.aspx.designer.cs">
-      <DependentUpon>HowItWorks.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manage\Customers\MyReceipts.aspx.cs">
-      <DependentUpon>MyReceipts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manage\Customers\MyReceipts.aspx.designer.cs">
-      <DependentUpon>MyReceipts.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manage\Customers\MyVouchers.aspx.cs">
-      <DependentUpon>MyVouchers.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manage\Customers\MyVouchers.aspx.designer.cs">
-      <DependentUpon>MyVouchers.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manage\Customers\UpdateDetails.aspx.cs">
-      <DependentUpon>UpdateDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manage\Customers\UpdateDetails.aspx.designer.cs">
-      <DependentUpon>UpdateDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="manage\Customers\ViewReceipt.aspx.cs">
-      <DependentUpon>ViewReceipt.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="manage\Customers\ViewReceipt.aspx.designer.cs">
-      <DependentUpon>ViewReceipt.aspx</DependentUpon>
-    </Compile>
     <Compile Include="manage\Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -714,6 +652,13 @@
     </Compile>
     <Compile Include="manage\Rewards\Triggers.aspx.designer.cs">
       <DependentUpon>Triggers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\Rewards\ValidateVoucher.aspx.cs">
+      <DependentUpon>ValidateVoucher.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\Rewards\ValidateVoucher.aspx.designer.cs">
+      <DependentUpon>ValidateVoucher.aspx</DependentUpon>
     </Compile>
     <Compile Include="manage\Rewards\ViewCustomer.aspx.cs">
       <DependentUpon>ViewCustomer.aspx</DependentUpon>
@@ -899,15 +844,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="manage\Customers\Customers.Master" />
-  </ItemGroup>
-  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\EsendexAccount\" />
     <WCFMetadataStorage Include="Service References\EsendexInbox\" />
     <WCFMetadataStorage Include="Service References\EsendexSend\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="manage\Customers\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

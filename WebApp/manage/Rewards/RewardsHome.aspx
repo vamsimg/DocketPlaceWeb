@@ -42,7 +42,7 @@
 
 	<asp:Panel ID="ActiveModulePanel" runat="server" Visible="false" Enabled="false">
 		
-		<a href="ViewVouchers.aspx">Vouchers</a>
+		<a href="ValidateVoucher.aspx">Validate Voucher</a>
 
 		<br />
 		<br />
