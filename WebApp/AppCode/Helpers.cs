@@ -14,6 +14,7 @@ namespace WebApp.AppCode
 {
 	public static class Helpers
 	{
+          public static string dollarFormat = "#0.00";
 
 		public static Customer GetLoggedInCustomer()
 		{

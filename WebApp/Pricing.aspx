@@ -9,7 +9,7 @@
 	
 	<i>Includes Loyalty Program, Sales analytics, CRM, SMS and Email integration</i>
 
-	<b>$600 per year</b>	
+	<b>$1200 per year</b>	
      
 	<h3>SMS costs</h3>
 	<b>10c per SMS (GST ex)</b>

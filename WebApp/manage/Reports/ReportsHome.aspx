@@ -22,10 +22,22 @@
 
 	<br />
 	<br />
+     <a href ="CategoryAnalysis.aspx">Category Analysis</a>
 
-     <asp:Button ID="CategoriesButton" runat="server" Text="Update Departments/Categories" onclick="CategoriesButton_Click" />
+     
+	<br />
+	<br />
 
+
+     <asp:Button ID="CategoriesButton" runat="server" Text="Refresh Departments/Categories" onclick="CategoriesButton_Click" />
+     <i>Only click this once per month or when you have added new categories in MYOB RM</i>
      <br />
-
+          
      <asp:Label ID="CategoriesErrorLabel" runat="server" Text="" CssClass="errorMessage" EnableViewState="false"></asp:Label>
+
+
+
+
+
+
 </asp:Content>

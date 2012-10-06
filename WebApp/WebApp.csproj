@@ -227,6 +227,7 @@
     <Content Include="manage\Companies\UpdateCompany.aspx" />
     <Content Include="manage\Companies\ViewCompany.aspx" />
     <Content Include="manage\Dashboard.aspx" />
+    <Content Include="manage\Reports\CategoryAnalysis.aspx" />
     <Content Include="manage\Reports\ReportsHome.aspx" />
     <Content Include="manage\Rewards\AllCustomers.aspx" />
     <Content Include="manage\Rewards\ConfigureRewards.aspx" />
@@ -582,6 +583,13 @@
     </Compile>
     <Compile Include="manage\Dashboard.aspx.designer.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="manage\Reports\CategoryAnalysis.aspx.cs">
+      <DependentUpon>CategoryAnalysis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manage\Reports\CategoryAnalysis.aspx.designer.cs">
+      <DependentUpon>CategoryAnalysis.aspx</DependentUpon>
     </Compile>
     <Compile Include="manage\Reports\ReportsHome.aspx.cs">
       <DependentUpon>ReportsHome.aspx</DependentUpon>

@@ -59,6 +59,7 @@ namespace WebApp.manage.Reports
                breadCrumbPanel.Controls.Add(Level2);
           }
 
+
           protected void CategoriesButton_Click(object sender, EventArgs e)
           {
                try

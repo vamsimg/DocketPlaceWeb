@@ -298,9 +298,9 @@ namespace WebApp.manage.Rewards
 
 
 				var newGroupings = new List<List.Grouping>() 
-               {
-                    new List.Grouping(groupTitle, new string[] {groupTitle}),                  
-               };
+                    {
+                         new List.Grouping(groupTitle, new string[] {groupTitle}),                  
+                    };
 
 
 

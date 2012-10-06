@@ -256,7 +256,7 @@ namespace WebApp.AppCode
                                             
                                         FROM 
                                         (
-                                             SELECT product_code, product_barcode, description, department, category, SUM(quantity) as total_sold, SUM(quantity * sale_inc) as gross_sales , SUM(quantity * (sale_ex - cost_ex)) as net_profit
+                                             SELECT product_code, product_barcode, description, department, category, SUM(quantity) as total_sold, SUM(quantity * sale_ex) as gross_sales , SUM(quantity * (sale_ex - cost_ex)) as net_profit
                                              FROM Dockets as d
                                              INNER JOIN DocketItems as i
                                              on d.docket_id = i.docket_id
@@ -525,6 +525,45 @@ namespace WebApp.AppCode
                return seperatedValues;
           }
 
+
+          public static DataTable getCategoryAnalysisRawData(string department, int storeID, DateTime startDate, DateTime endDate)
+          {
+               // declare the SqlDataReader, which is used in
+               // both the try block and the finally block
+
+               // create a connection object
+               SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnString"].ConnectionString);
+
+               // create a command object
+
+               string selectCommand = @"select product_barcode, description ,quantity, cost_ex, sale_ex, department, c.customer_id , email, title ,first_name, last_name, mobile, suburb, postcode, email_broken, mobile_broken ,no_email  , no_sms
+                                        from Dockets as d 
+                                        inner join DocketItems as i on d.docket_id = i.docket_id 
+                                        left outer join Customers as c on d.customer_id = c.customer_id 
+                                        inner join Members as m on m.customer_id = c.customer_id 
+                                        where d.store_id = @storeID and department = @department and d.creation_datetime >= @start_date AND d.creation_datetime < @end_date";
+
+               SqlCommand command = new SqlCommand(selectCommand, connection);
+
+               // 2. define parameters used in command object
+               SqlParameter param1 = new SqlParameter("@start_date", startDate);
+               SqlParameter param2 = new SqlParameter("@end_date", endDate.AddDays(1));
+               SqlParameter param3 = new SqlParameter("@storeID", storeID);
+               SqlParameter param4 = new SqlParameter("@department", department);
+
+               // 3. add new parameter to command object
+               command.Parameters.Add(param1);
+               command.Parameters.Add(param2);
+               command.Parameters.Add(param3);
+               command.Parameters.Add(param4);
+
+               SqlDataAdapter ad = new SqlDataAdapter();
+               ad.SelectCommand = command;
+
+               DataSet newSet = new DataSet();
+               ad.Fill(newSet);
+               return newSet.Tables[0];
+          }
 
 	}
 }
